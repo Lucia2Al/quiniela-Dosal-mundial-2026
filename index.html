@@ -508,7 +508,7 @@ function getTodayStr() {
   var today = new Date();
   var dayN = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
   var monN = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-  return dayN[today.getDay()] + ' ' + today.getDate() + ' ' + monN[today.getMonth()];
+  return dayN[today.getDay()] + ' ' + today.getDate() + ' ' + monN[today.getMonth() + 1];
 }
 
 function renderPartidos() {
