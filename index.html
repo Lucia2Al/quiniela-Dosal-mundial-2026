@@ -955,26 +955,34 @@ var RESULTS_PATH = 'resultados.json';
 
 function getSyncToken() { return localStorage.getItem('quiniela_sync_token') || ''; }
 
-async function loadRemoteResults() {
+function b64DecodeUTF8(str) {
+  return decodeURIComponent(atob(str.replace(/\n/g,'')).split('').map(function(c){
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+}
+
+async function loadRemoteResults(showFeedback) {
   try {
     var apiUrl = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + RESULTS_PATH;
-    var headers = { 'Accept': 'application/vnd.github.v3+json', 'Cache-Control': 'no-cache' };
+    var headers = { 'Accept': 'application/vnd.github.v3+json' };
     var token = getSyncToken();
     if (token) headers['Authorization'] = 'token ' + token;
     var r = await fetch(apiUrl, { headers: headers });
-    if (!r.ok) return;
+    if (!r.ok) { if (showFeedback) showToast('Error al conectar con GitHub'); return; }
     var fileData = await r.json();
-    var decoded = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g,''))));
-    var data = JSON.parse(decoded);
+    var data = JSON.parse(b64DecodeUTF8(fileData.content));
     if (!data.partidos) return;
     var stored = getResults();
-    var changed = false;
+    var newCount = 0;
     Object.keys(data.partidos).forEach(function(pid) {
       var res = data.partidos[pid].resultado;
-      if (Array.isArray(res)) { stored[pid] = res; changed = true; }
+      if (Array.isArray(res) && JSON.stringify(stored[pid]) !== JSON.stringify(res)) {
+        stored[pid] = res; newCount++;
+      }
     });
-    if (changed) { saveResults(stored); renderTab(activeTab); }
-  } catch(e) {}
+    if (newCount > 0) { saveResults(stored); renderTab(activeTab); }
+    if (showFeedback) showToast(newCount > 0 ? newCount + ' resultado(s) actualizado(s) ✓' : 'Ya estás al día ✓');
+  } catch(e) { if (showFeedback) showToast('Error al sincronizar'); }
 }
 
 async function pushResultToGitHub(matchId, h, a) {
@@ -1011,8 +1019,7 @@ function saveSyncToken() {
 
 async function syncNow() {
   showToast('Sincronizando...');
-  await loadRemoteResults();
-  showToast('Sincronizado ✓');
+  await loadRemoteResults(true);
 }
 
 // ============================================================
