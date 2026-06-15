@@ -537,7 +537,30 @@ function renderPartidos() {
     var otherMatches = MATCHES.filter(function(m){ return m.date!==todayStr; });
     matchList = todayMatches.concat(otherMatches);
     if (todayIsMatch) {
-      html += '<div style="font-size:0.8rem;color:var(--green);font-weight:600;margin-bottom:10px;padding:6px 10px;background:#dcfce7;border-radius:6px;">📍 Partidos de hoy arriba</div>';
+      html += '<div style="background:#fff7ed;border:2px solid #f97316;border-radius:12px;padding:14px 14px 6px;margin-bottom:20px;">'
+        + '<div style="font-size:0.85rem;font-weight:800;color:#ea580c;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">📍 HOY &middot; '+todayStr.toUpperCase()+'</div>';
+      todayMatches.forEach(function(m) {
+        var real = results[m.id];
+        var hasResult = !!real;
+        html += '<div class="match-card '+(hasResult?'has-result':'')+'" style="margin-bottom:10px;">'
+          + '<div class="match-header"><span class="match-id">'+m.id+' &middot; '+m.time+'</span><span class="match-group">Grupo '+m.group+'</span></div>'
+          + (m.venue ? '<div style="font-size:0.72rem;color:var(--text-muted);padding:2px 0 6px;text-align:center;">📍 '+m.venue+'</div>' : '')
+          + '<div class="match-score"><div class="match-teams"><span>'+m.home+'</span>';
+        if (hasResult) html += '<span class="match-result-score">'+real[0]+' &ndash; '+real[1]+'</span>';
+        else html += '<span class="match-pending-score">vs</span>';
+        html += '<span>'+m.away+'</span></div></div><div class="predictions-grid">';
+        PARTICIPANTS.forEach(function(p) {
+          var pred = PREDICTIONS[p] && PREDICTIONS[p][m.id];
+          if (!pred) return;
+          var cls, icon;
+          if (!hasResult) { cls='pred-pending'; icon=''; }
+          else { var s=scoreMatch(pred,real); if(s===3){cls='pred-exact';icon='✓ ';}else if(s===1){cls='pred-correct';icon='~ ';}else{cls='pred-wrong';icon='✗ ';} }
+          html += '<span class="pred-chip '+cls+'">'+icon+p+': '+pred[0]+'-'+pred[1]+'</span>';
+        });
+        html += '</div></div>';
+      });
+      html += '</div>';
+      matchList = otherMatches;
     }
   } else {
     matchList = MATCHES.filter(function(m){ return m.date===selectedDay; })
