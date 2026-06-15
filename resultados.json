@@ -122,7 +122,10 @@
       "grupo": "E",
       "local": "Costa de Marfil",
       "visitante": "Ecuador",
-      "resultado": null
+      "resultado": [
+        1,
+        0
+      ]
     },
     "P12": {
       "fecha": "Dom 14 Jun",
@@ -130,7 +133,10 @@
       "grupo": "F",
       "local": "Suecia",
       "visitante": "Túnez",
-      "resultado": null
+      "resultado": [
+        5,
+        1
+      ]
     },
     "P13": {
       "fecha": "Lun 15 Jun",
@@ -138,7 +144,10 @@
       "grupo": "H",
       "local": "España",
       "visitante": "Cabo Verde",
-      "resultado": null
+      "resultado": [
+        0,
+        0
+      ]
     },
     "P14": {
       "fecha": "Lun 15 Jun",
