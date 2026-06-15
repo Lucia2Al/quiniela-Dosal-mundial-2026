@@ -453,15 +453,24 @@ function renderTabla() {
     html += '<div class="bonus-note">&#x2139;&#xFE0F; Los bonus de campeón (+10 pts) y/o goleador (+5 pts) aún no han sido asignados. Los puntos son parciales.</div>';
   }
 
-  var top3 = standings.slice(0,3);
+  // Agrupar empates para el podio
+  var groups = [];
+  standings.forEach(function(s) {
+    var last = groups[groups.length-1];
+    if (last && last.total === s.total) { last.members.push(s); }
+    else { groups.push({total: s.total, members: [s]}); }
+  });
+
   var medals = ['🥇','🥈','🥉'];
   var pcls = ['p1','p2','p3'];
   html += '<div class="podium">';
-  top3.forEach(function(s,i) {
+  groups.slice(0,3).forEach(function(g,i) {
+    var names = g.members.map(function(m){ return m.p; }).join(' · ');
+    var s = g.members[0];
     html += '<div class="podium-card '+pcls[i]+'">'
       + '<span class="podium-medal">'+medals[i]+'</span>'
-      + '<div class="podium-name">'+s.p+'</div>'
-      + '<div class="podium-pts">'+s.total+'</div>'
+      + '<div class="podium-name">'+names+'</div>'
+      + '<div class="podium-pts">'+g.total+'</div>'
       + '<div class="podium-sub">'+s.exact+' exactos &middot; '+s.correct+' ganador</div>'
       + '</div>';
   });
@@ -471,12 +480,14 @@ function renderTabla() {
     + '<th>#</th><th>Nombre</th><th>Pts</th><th>Exactos</th><th>Ganador</th><th>PJ</th>'
     + '</tr></thead><tbody>';
 
+  var rank = 1;
   standings.forEach(function(s,i) {
+    if (i > 0 && standings[i].total < standings[i-1].total) rank = i+1;
     var rb;
-    if (i===0) rb = '<span class="rank-badge rank-1">1</span>';
-    else if (i===1) rb = '<span class="rank-badge rank-2">2</span>';
-    else if (i===2) rb = '<span class="rank-badge rank-3">3</span>';
-    else rb = '<span style="color:var(--text-muted);font-weight:600">'+(i+1)+'</span>';
+    if (rank===1) rb = '<span class="rank-badge rank-1">1</span>';
+    else if (rank===2) rb = '<span class="rank-badge rank-2">2</span>';
+    else if (rank===3) rb = '<span class="rank-badge rank-3">3</span>';
+    else rb = '<span style="color:var(--text-muted);font-weight:600">'+rank+'</span>';
     html += '<tr><td>'+rb+'</td><td><strong>'+s.p+'</strong></td>'
       + '<td><span class="pts-big">'+s.total+'</span></td>'
       + '<td>'+s.exact+'</td><td>'+s.correct+'</td><td>'+s.played+'</td></tr>';
