@@ -957,10 +957,15 @@ function getSyncToken() { return localStorage.getItem('quiniela_sync_token') || 
 
 async function loadRemoteResults() {
   try {
-    var url = 'https://raw.githubusercontent.com/' + GITHUB_REPO + '/main/' + RESULTS_PATH + '?_=' + Date.now();
-    var r = await fetch(url);
+    var apiUrl = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + RESULTS_PATH;
+    var headers = { 'Accept': 'application/vnd.github.v3+json', 'Cache-Control': 'no-cache' };
+    var token = getSyncToken();
+    if (token) headers['Authorization'] = 'token ' + token;
+    var r = await fetch(apiUrl, { headers: headers });
     if (!r.ok) return;
-    var data = await r.json();
+    var fileData = await r.json();
+    var decoded = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g,''))));
+    var data = JSON.parse(decoded);
     if (!data.partidos) return;
     var stored = getResults();
     var changed = false;
