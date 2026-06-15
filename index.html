@@ -1010,6 +1010,8 @@ function renderAdminPanel() {
       ? '<p style="font-size:0.78rem;color:var(--exact);margin-top:8px">&#x2713; Sync activo &mdash; resultados se publican automáticamente al guardar</p>'
       : '<p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px">Sin token: se guarda solo en este dispositivo</p>')
     + '<button class="btn-export" style="margin-top:10px" onclick="syncNow()">&#x21BB; Cargar resultados remotos</button>'
+    + '<button onclick="pushAllResultsToGitHub()" style="margin-top:8px;width:100%;padding:12px;background:var(--green);color:white;border:none;border-radius:8px;font-weight:700;font-size:0.9rem;cursor:pointer;">&#x1F4E4; Publicar TODOS los resultados a GitHub</button>'
+    + '<p style="font-size:0.72rem;color:var(--text-muted);margin-top:6px">Usa este botón la primera vez o si los demás no ven tus resultados. Sube todo lo que tienes guardado aquí.</p>'
     + '</div>';
 
   html += '<div class="admin-section"><h3>&#x26A0;&#xFE0F; Acciones</h3>'
@@ -1114,6 +1116,12 @@ async function loadRemoteResults(showFeedback) {
   } catch(e) { if (showFeedback) showToast('Error al sincronizar'); }
 }
 
+function b64EncodeUTF8(str) {
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(m, p1) {
+    return String.fromCharCode(parseInt(p1, 16));
+  }));
+}
+
 async function pushResultToGitHub(matchId, h, a) {
   var token = getSyncToken();
   if (!token) return false;
@@ -1122,20 +1130,47 @@ async function pushResultToGitHub(matchId, h, a) {
     var r = await fetch(apiUrl, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }});
     if (!r.ok) return false;
     var fileData = await r.json();
-    var decoded = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g,''))));
-    var content = JSON.parse(decoded);
+    var content = JSON.parse(b64DecodeUTF8(fileData.content));
     if (content.partidos && content.partidos[matchId]) {
       content.partidos[matchId].resultado = [h, a];
       content._ultima_actualizacion = new Date().toISOString().slice(0, 10);
     }
-    var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
     var wr = await fetch(apiUrl, {
       method: 'PUT',
       headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
-      body: JSON.stringify({ message: 'Resultado ' + matchId + ': ' + h + '-' + a, content: encoded, sha: fileData.sha })
+      body: JSON.stringify({ message: 'Resultado ' + matchId + ': ' + h + '-' + a, content: b64EncodeUTF8(JSON.stringify(content, null, 2)), sha: fileData.sha })
     });
     return wr.ok;
   } catch(e) { return false; }
+}
+
+async function pushAllResultsToGitHub() {
+  var token = getSyncToken();
+  if (!token) { showToast('Necesitas configurar el token en Admin'); return; }
+  showToast('Publicando todos los resultados...');
+  try {
+    var apiUrl = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + RESULTS_PATH;
+    var r = await fetch(apiUrl, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }});
+    if (!r.ok) { showToast('Error al conectar con GitHub'); return; }
+    var fileData = await r.json();
+    var content = JSON.parse(b64DecodeUTF8(fileData.content));
+    var stored = getResults();
+    var count = 0;
+    Object.keys(stored).forEach(function(pid) {
+      if (content.partidos && content.partidos[pid] && Array.isArray(stored[pid])) {
+        content.partidos[pid].resultado = stored[pid];
+        count++;
+      }
+    });
+    content._ultima_actualizacion = new Date().toISOString().slice(0, 10);
+    var wr = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+      body: JSON.stringify({ message: 'Sync completo: ' + count + ' resultados', content: b64EncodeUTF8(JSON.stringify(content, null, 2)), sha: fileData.sha })
+    });
+    if (wr.ok) showToast(count + ' resultados publicados ✓ — los demás ya pueden actualizar');
+    else showToast('Error al publicar en GitHub');
+  } catch(e) { showToast('Error al sincronizar'); }
 }
 
 function saveSyncToken() {
