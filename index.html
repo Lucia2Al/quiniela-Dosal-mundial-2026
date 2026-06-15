@@ -42,6 +42,18 @@
   .tab-content { display: none; padding: 16px; max-width: 900px; margin: 0 auto; }
   .tab-content.active { display: block; }
 
+  /* Grupos del mundial */
+  .grupos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .group-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .group-card-header { background: var(--green); color: white; padding: 9px 14px; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px; }
+  .group-card table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  .group-card th { padding: 5px 8px; background: rgba(0,0,0,0.04); color: var(--text-muted); font-weight: 600; font-size: 0.72rem; text-align: right; }
+  .group-card th:first-child { text-align: left; }
+  .group-card td { padding: 6px 8px; border-top: 1px solid var(--border); text-align: right; }
+  .group-card td:first-child { text-align: left; font-weight: 600; }
+  .group-card tr.qualify { background: rgba(34,197,94,0.08); }
+  .group-card tr.qualify td:first-child { border-left: 3px solid var(--green); }
+
   /* Podium */
   .podium { display: flex; gap: 12px; margin-bottom: 20px; align-items: flex-end; justify-content: center; }
   .podium-card { flex: 1; max-width: 200px; background: var(--card); border-radius: var(--radius); padding: 16px 12px; text-align: center; box-shadow: var(--shadow); border: 2px solid transparent; }
@@ -232,6 +244,7 @@
   <button class="tab-btn" onclick="showTab('jugadores')">&#x1F464; Jugadores</button>
   <button class="tab-btn" onclick="showTab('campeon')">&#x1F31F; Campe&oacute;n</button>
   <button class="tab-btn" onclick="showTab('goleador')">&#x1F45F; Goleador</button>
+  <button class="tab-btn" onclick="showTab('grupos')">&#x1F30D; Grupos</button>
   <button class="tab-btn" onclick="showTab('reglas')">&#x1F4CB; Reglas</button>
   <button class="tab-btn" onclick="showTab('admin')">&#x1F510; Admin</button>
 </div>
@@ -241,6 +254,7 @@
 <div id="tab-jugadores" class="tab-content"></div>
 <div id="tab-campeon" class="tab-content"></div>
 <div id="tab-goleador" class="tab-content"></div>
+<div id="tab-grupos" class="tab-content"></div>
 <div id="tab-reglas" class="tab-content"></div>
 <div id="tab-admin" class="tab-content"></div>
 
@@ -420,7 +434,7 @@ function calcStandings() {
 var activeTab = 'tabla';
 
 function showTab(tab) {
-  var tabs = ['tabla','partidos','jugadores','campeon','goleador','reglas','admin'];
+  var tabs = ['tabla','partidos','jugadores','campeon','goleador','grupos','reglas','admin'];
   var btns = document.querySelectorAll('.tab-btn');
   btns.forEach(function(b, i) { b.classList.toggle('active', tabs[i] === tab); });
   document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
@@ -435,6 +449,7 @@ function renderTab(tab) {
   else if (tab==='jugadores') renderJugadores();
   else if (tab==='campeon') renderCampeon();
   else if (tab==='goleador') renderGoleador();
+  else if (tab==='grupos') renderGrupos();
   else if (tab==='reglas') renderReglas();
   else if (tab==='admin') { loadRemoteResults().then(function(){ renderAdmin(); }); }
 }
@@ -802,6 +817,97 @@ function removeScorer(i) { var sc=getScorers(); sc.splice(i,1); saveScorers(sc);
 // ============================================================
 // TAB 6: REGLAS
 // ============================================================
+
+var TEAM_FLAGS = {
+  'México':'🇲🇽','Sudáfrica':'🇿🇦','Rep. Corea':'🇰🇷','Rep. Checa':'🇨🇿',
+  'Canadá':'🇨🇦','Bosnia y Herzegovina':'🇧🇦','Catar':'🇶🇦','Suiza':'🇨🇭',
+  'Brasil':'🇧🇷','Marruecos':'🇲🇦','Haití':'🇭🇹','Escocia':'🏴󠁧󠁢󠁳󠁣󠁴󠁿',
+  'Estados Unidos':'🇺🇸','Paraguay':'🇵🇾','Australia':'🇦🇺','Turquía':'🇹🇷',
+  'Alemania':'🇩🇪','Curazao':'🇨🇼','Costa de Marfil':'🇨🇮','Ecuador':'🇪🇨',
+  'Países Bajos':'🇳🇱','Japón':'🇯🇵','Suecia':'🇸🇪','Túnez':'🇹🇳',
+  'Bélgica':'🇧🇪','Egipto':'🇪🇬','Irán':'🇮🇷','Nueva Zelanda':'🇳🇿',
+  'España':'🇪🇸','Cabo Verde':'🇨🇻','Arabia Saudita':'🇸🇦','Uruguay':'🇺🇾',
+  'Francia':'🇫🇷','Senegal':'🇸🇳','Irak':'🇮🇶','Noruega':'🇳🇴',
+  'Austria':'🇦🇹','Jordania':'🇯🇴','Argentina':'🇦🇷','Argelia':'🇩🇿',
+  'Portugal':'🇵🇹','Rep. Dem. del Congo':'🇨🇩','Uzbekistán':'🇺🇿','Colombia':'🇨🇴',
+  'Inglaterra':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Croacia':'🇭🇷','Ghana':'🇬🇭','Panamá':'🇵🇦'
+};
+
+function renderGrupos() {
+  var results = getResults();
+
+  // Build standings per group
+  var groups = {};
+  MATCHES.forEach(function(m) {
+    if (!groups[m.group]) groups[m.group] = {};
+    var g = groups[m.group];
+    if (!g[m.home]) g[m.home] = {pts:0,pj:0,pg:0,pe:0,pp:0,gf:0,gc:0};
+    if (!g[m.away]) g[m.away] = {pts:0,pj:0,pg:0,pe:0,pp:0,gf:0,gc:0};
+  });
+
+  MATCHES.forEach(function(m) {
+    var res = results[m.id];
+    if (!Array.isArray(res)) return;
+    var hg = res[0], ag = res[1];
+    var ht = groups[m.group][m.home], at = groups[m.group][m.away];
+    ht.pj++; ht.gf += hg; ht.gc += ag;
+    at.pj++; at.gf += ag; at.gc += hg;
+    if (hg > ag)      { ht.pts += 3; ht.pg++; at.pp++; }
+    else if (hg < ag) { at.pts += 3; at.pg++; ht.pp++; }
+    else              { ht.pts++; ht.pe++; at.pts++; at.pe++; }
+  });
+
+  var sortedGroupNames = Object.keys(groups).sort();
+  var anyPlayed = false;
+  var html = '<div class="grupos-grid">';
+
+  sortedGroupNames.forEach(function(gName) {
+    var teams = groups[gName];
+    var hasPlayed = Object.keys(teams).some(function(t){ return teams[t].pj > 0; });
+    if (!hasPlayed) return;
+    anyPlayed = true;
+
+    var sorted = Object.keys(teams).sort(function(a, b) {
+      var ta = teams[a], tb = teams[b];
+      if (tb.pts !== ta.pts) return tb.pts - ta.pts;
+      var gda = ta.gf - ta.gc, gdb = tb.gf - tb.gc;
+      if (gdb !== gda) return gdb - gda;
+      return tb.gf - ta.gf;
+    });
+
+    html += '<div class="group-card">'
+      + '<div class="group-card-header">GRUPO ' + gName + '</div>'
+      + '<table><thead><tr>'
+      + '<th>Equipo</th><th>PJ</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th>'
+      + '</tr></thead><tbody>';
+
+    sorted.forEach(function(name, i) {
+      var t = teams[name];
+      var gd = t.gf - t.gc;
+      var gdStr = (gd > 0 ? '+' : '') + gd;
+      var flag = TEAM_FLAGS[name] || '';
+      var qClass = i < 2 ? ' class="qualify"' : '';
+      html += '<tr' + qClass + '>'
+        + '<td>' + flag + ' ' + name + '</td>'
+        + '<td>' + t.pj + '</td>'
+        + '<td>' + t.gf + '</td>'
+        + '<td>' + t.gc + '</td>'
+        + '<td>' + gdStr + '</td>'
+        + '<td><strong>' + t.pts + '</strong></td>'
+        + '</tr>';
+    });
+
+    html += '</tbody></table></div>';
+  });
+
+  html += '</div>';
+
+  if (!anyPlayed) {
+    html = '<div style="text-align:center;padding:48px 16px;color:var(--text-muted);font-size:1rem;">⚽ Aún no hay partidos jugados</div>';
+  }
+
+  document.getElementById('tab-grupos').innerHTML = html;
+}
 
 function renderReglas() {
   document.getElementById('tab-reglas').innerHTML = '<div class="rules-card">'
