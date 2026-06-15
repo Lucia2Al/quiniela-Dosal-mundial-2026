@@ -436,7 +436,7 @@ function renderTab(tab) {
   else if (tab==='campeon') renderCampeon();
   else if (tab==='goleador') renderGoleador();
   else if (tab==='reglas') renderReglas();
-  else if (tab==='admin') renderAdmin();
+  else if (tab==='admin') { loadRemoteResults().then(function(){ renderAdmin(); }); }
 }
 
 // ============================================================
