@@ -223,7 +223,7 @@
 
 <header>
   <h1>&#x26BD; QUINIELA DOSAL &middot; MUNDIAL 2026</h1>
-  <p>11 Jun &ndash; 19 Jul 2026</p>
+  <p>11 Jun &ndash; 19 Jul 2026 &nbsp;<button onclick="syncNow()" style="background:rgba(255,255,255,0.15);border:none;color:white;font-size:0.75rem;padding:2px 8px;border-radius:10px;cursor:pointer;">&#x21BB; Actualizar</button></p>
 </header>
 
 <div class="tab-bar">
@@ -1031,6 +1031,10 @@ function showToast(msg) {
 
 renderTab('tabla');
 loadRemoteResults();
+
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'visible') loadRemoteResults();
+});
 </script>
 </body>
 </html>
