@@ -453,22 +453,24 @@ function renderTabla() {
     html += '<div class="bonus-note">&#x2139;&#xFE0F; Los bonus de campeón (+10 pts) y/o goleador (+5 pts) aún no han sido asignados. Los puntos son parciales.</div>';
   }
 
-  // Agrupar empates para el podio
+  // Agrupar empates con rango real (empate en 1° → siguiente es 3°)
   var groups = [];
-  standings.forEach(function(s) {
+  var rankCount = 1;
+  standings.forEach(function(s, i) {
+    if (i > 0 && standings[i].total < standings[i-1].total) rankCount = i + 1;
     var last = groups[groups.length-1];
-    if (last && last.total === s.total) { last.members.push(s); }
-    else { groups.push({total: s.total, members: [s]}); }
+    if (last && last.rank === rankCount) { last.members.push(s); }
+    else { groups.push({total: s.total, members: [s], rank: rankCount}); }
   });
 
-  var medals = ['🥇','🥈','🥉'];
-  var pcls = ['p1','p2','p3'];
+  var medalMap = {1:'🥇', 2:'🥈', 3:'🥉'};
+  var clsMap   = {1:'p1',  2:'p2',  3:'p3'};
   html += '<div class="podium">';
-  groups.slice(0,3).forEach(function(g,i) {
+  groups.filter(function(g){ return g.rank <= 3; }).forEach(function(g) {
     var names = g.members.map(function(m){ return m.p; }).join(' · ');
     var s = g.members[0];
-    html += '<div class="podium-card '+pcls[i]+'">'
-      + '<span class="podium-medal">'+medals[i]+'</span>'
+    html += '<div class="podium-card '+clsMap[g.rank]+'">'
+      + '<span class="podium-medal">'+medalMap[g.rank]+'</span>'
       + '<div class="podium-name">'+names+'</div>'
       + '<div class="podium-pts">'+g.total+'</div>'
       + '<div class="podium-sub">'+s.exact+' exactos &middot; '+s.correct+' ganador</div>'
