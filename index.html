@@ -57,7 +57,7 @@
   .podium-sub { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
 
   /* Table */
-  .standings-table { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .standings-table { background: var(--card); border-radius: var(--radius); overflow-x: auto; box-shadow: var(--shadow); }
   table { width: 100%; border-collapse: collapse; }
   thead { background: var(--green); color: white; }
   th { padding: 12px 10px; text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
@@ -157,6 +157,29 @@
 
   /* Admin */
   .admin-lock { background: var(--card); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); max-width: 360px; margin: 40px auto; }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.05rem; }
+    .tab-content { padding: 12px; }
+    .podium { gap: 6px; }
+    .podium-card { padding: 10px 6px; }
+    .podium-name { font-size: 0.85rem; }
+    .podium-pts { font-size: 1.3rem; }
+    .podium-sub { font-size: 0.62rem; }
+    th, td { padding: 8px 5px; font-size: 0.72rem; }
+    .pts-big { font-size: 0.9rem; }
+    .match-teams { font-size: 0.85rem; gap: 6px; }
+    .match-result-score { padding: 3px 10px; font-size: 1rem; }
+    .player-summary { gap: 6px; }
+    .summary-card { min-width: 58px; padding: 10px 6px; }
+    .summary-card .val { font-size: 1.3rem; }
+    .result-row { flex-wrap: wrap; gap: 6px; }
+    .result-match-label { width: 100%; }
+    .score-input { width: 44px; }
+    .bonus-admin-row { flex-direction: column; }
+    .bonus-admin-row input { min-width: unset; width: 100%; }
+  }
   .admin-lock h2 { font-size: 1.1rem; margin-bottom: 8px; }
   .admin-lock p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; }
   .pw-input { width: 100%; padding: 10px 14px; border: 2px solid var(--border); border-radius: 8px; font-size: 0.95rem; margin-bottom: 12px; text-align: center; letter-spacing: 2px; }
@@ -439,13 +462,13 @@ function renderTabla() {
       + '<span class="podium-medal">'+medals[i]+'</span>'
       + '<div class="podium-name">'+s.p+'</div>'
       + '<div class="podium-pts">'+s.total+'</div>'
-      + '<div class="podium-sub">'+s.exact+' exactos &middot; '+s.correct+' correctos</div>'
+      + '<div class="podium-sub">'+s.exact+' exactos &middot; '+s.correct+' ganador</div>'
       + '</div>';
   });
   html += '</div>';
 
   html += '<div class="standings-table"><table><thead><tr>'
-    + '<th>#</th><th>Nombre</th><th>Pts</th><th>Exactos</th><th>Correctos</th><th>Errores</th><th>PJ</th>'
+    + '<th>#</th><th>Nombre</th><th>Pts</th><th>Exactos</th><th>Ganador</th><th>PJ</th>'
     + '</tr></thead><tbody>';
 
   standings.forEach(function(s,i) {
@@ -456,7 +479,7 @@ function renderTabla() {
     else rb = '<span style="color:var(--text-muted);font-weight:600">'+(i+1)+'</span>';
     html += '<tr><td>'+rb+'</td><td><strong>'+s.p+'</strong></td>'
       + '<td><span class="pts-big">'+s.total+'</span></td>'
-      + '<td>'+s.exact+'</td><td>'+s.correct+'</td><td>'+s.wrong+'</td><td>'+s.played+'</td></tr>';
+      + '<td>'+s.exact+'</td><td>'+s.correct+'</td><td>'+s.played+'</td></tr>';
   });
 
   html += '</tbody></table></div>';
@@ -836,6 +859,18 @@ function renderAdminPanel() {
     + (bonus.goleador ? '<p style="font-size:0.8rem;color:var(--exact);margin-top:8px">Goleador actual: <strong>'+esc(bonus.goleador)+'</strong></p>' : '')
     + '</div>';
 
+  html += '<div class="admin-section"><h3>&#x1F517; Sincronizaci&oacute;n entre dispositivos</h3>'
+    + '<p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:12px">Con un GitHub token los resultados se guardan en el servidor y todos los dispositivos los ven al recargar la página. Crear en: github.com → Settings → Developer settings → Personal access tokens → Fine-grained → Repository: quiniela-Dosal-mundial-2026 → Contents: Read & Write.</p>'
+    + '<div class="bonus-admin-row">'
+    + '<input type="password" id="sync-token-input" value="'+esc(getSyncToken())+'" placeholder="GitHub Personal Access Token">'
+    + '<button class="btn-save-result" onclick="saveSyncToken()">Guardar</button>'
+    + '</div>'
+    + (getSyncToken()
+      ? '<p style="font-size:0.78rem;color:var(--exact);margin-top:8px">&#x2713; Sync activo &mdash; resultados se publican automáticamente al guardar</p>'
+      : '<p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px">Sin token: se guarda solo en este dispositivo</p>')
+    + '<button class="btn-export" style="margin-top:10px" onclick="syncNow()">&#x21BB; Cargar resultados remotos</button>'
+    + '</div>';
+
   html += '<div class="admin-section"><h3>&#x26A0;&#xFE0F; Acciones</h3>'
     + '<button class="btn-danger" onclick="resetAll()">&#x1F5D1; Reset todos los resultados</button>'
     + '<button class="btn-export" onclick="exportJSON()">&#x1F4E5; Exportar JSON</button>'
@@ -848,12 +883,20 @@ function saveMatchResult(id) {
   var h = document.getElementById('r-'+id+'-h').value.trim();
   var a = document.getElementById('r-'+id+'-a').value.trim();
   if (h==='' || a==='') { showToast('Ingresa ambos valores'); return; }
+  var hInt = parseInt(h), aInt = parseInt(a);
   var results = getResults();
-  results[id] = [parseInt(h), parseInt(a)];
+  results[id] = [hInt, aInt];
   saveResults(results);
-  showToast(id+' guardado: '+h+'–'+a);
   document.getElementById('r-'+id+'-h').classList.add('filled');
   document.getElementById('r-'+id+'-a').classList.add('filled');
+  if (getSyncToken()) {
+    showToast(id + ' guardando en servidor...');
+    pushResultToGitHub(id, hInt, aInt).then(function(ok) {
+      showToast(ok ? id + ' ✓ sincronizado' : id + ' guardado (sin sync)');
+    });
+  } else {
+    showToast(id + ' guardado: ' + h + '–' + a);
+  }
 }
 
 function saveBonusCampeon() {
@@ -892,6 +935,70 @@ function exportJSON() {
 }
 
 // ============================================================
+// SYNC — resultados remotos vía GitHub
+// ============================================================
+
+var GITHUB_REPO = 'Lucia2Al/quiniela-Dosal-mundial-2026';
+var RESULTS_PATH = 'resultados.json';
+
+function getSyncToken() { return localStorage.getItem('quiniela_sync_token') || ''; }
+
+async function loadRemoteResults() {
+  try {
+    var url = 'https://raw.githubusercontent.com/' + GITHUB_REPO + '/main/' + RESULTS_PATH + '?_=' + Date.now();
+    var r = await fetch(url);
+    if (!r.ok) return;
+    var data = await r.json();
+    if (!data.partidos) return;
+    var stored = getResults();
+    var changed = false;
+    Object.keys(data.partidos).forEach(function(pid) {
+      var res = data.partidos[pid].resultado;
+      if (Array.isArray(res)) { stored[pid] = res; changed = true; }
+    });
+    if (changed) { saveResults(stored); renderTab(activeTab); }
+  } catch(e) {}
+}
+
+async function pushResultToGitHub(matchId, h, a) {
+  var token = getSyncToken();
+  if (!token) return false;
+  try {
+    var apiUrl = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + RESULTS_PATH;
+    var r = await fetch(apiUrl, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }});
+    if (!r.ok) return false;
+    var fileData = await r.json();
+    var decoded = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g,''))));
+    var content = JSON.parse(decoded);
+    if (content.partidos && content.partidos[matchId]) {
+      content.partidos[matchId].resultado = [h, a];
+      content._ultima_actualizacion = new Date().toISOString().slice(0, 10);
+    }
+    var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
+    var wr = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+      body: JSON.stringify({ message: 'Resultado ' + matchId + ': ' + h + '-' + a, content: encoded, sha: fileData.sha })
+    });
+    return wr.ok;
+  } catch(e) { return false; }
+}
+
+function saveSyncToken() {
+  var v = document.getElementById('sync-token-input').value.trim();
+  if (v) localStorage.setItem('quiniela_sync_token', v);
+  else localStorage.removeItem('quiniela_sync_token');
+  showToast('Token ' + (v ? 'guardado' : 'eliminado'));
+  renderAdminPanel();
+}
+
+async function syncNow() {
+  showToast('Sincronizando...');
+  await loadRemoteResults();
+  showToast('Sincronizado ✓');
+}
+
+// ============================================================
 // UTILS
 // ============================================================
 
@@ -911,6 +1018,7 @@ function showToast(msg) {
 // ============================================================
 
 renderTab('tabla');
+loadRemoteResults();
 </script>
 </body>
 </html>
