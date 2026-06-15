@@ -453,24 +453,22 @@ function renderTabla() {
     html += '<div class="bonus-note">&#x2139;&#xFE0F; Los bonus de campeón (+10 pts) y/o goleador (+5 pts) aún no han sido asignados. Los puntos son parciales.</div>';
   }
 
-  // Agrupar empates con rango real (empate en 1° → siguiente es 3°)
+  // Agrupar empates (posición secuencial: 1°, 2°, 3°)
   var groups = [];
-  var rankCount = 1;
-  standings.forEach(function(s, i) {
-    if (i > 0 && standings[i].total < standings[i-1].total) rankCount = i + 1;
+  standings.forEach(function(s) {
     var last = groups[groups.length-1];
-    if (last && last.rank === rankCount) { last.members.push(s); }
-    else { groups.push({total: s.total, members: [s], rank: rankCount}); }
+    if (last && last.total === s.total) { last.members.push(s); }
+    else { groups.push({total: s.total, members: [s]}); }
   });
 
-  var medalMap = {1:'🥇', 2:'🥈', 3:'🥉'};
-  var clsMap   = {1:'p1',  2:'p2',  3:'p3'};
+  var medals = ['🥇','🥈','🥉'];
+  var pcls   = ['p1','p2','p3'];
   html += '<div class="podium">';
-  groups.filter(function(g){ return g.rank <= 3; }).forEach(function(g) {
+  groups.slice(0,3).forEach(function(g, i) {
     var names = g.members.map(function(m){ return m.p; }).join(' · ');
     var s = g.members[0];
-    html += '<div class="podium-card '+clsMap[g.rank]+'">'
-      + '<span class="podium-medal">'+medalMap[g.rank]+'</span>'
+    html += '<div class="podium-card '+pcls[i]+'">'
+      + '<span class="podium-medal">'+medals[i]+'</span>'
       + '<div class="podium-name">'+names+'</div>'
       + '<div class="podium-pts">'+g.total+'</div>'
       + '<div class="podium-sub">'+s.exact+' exactos &middot; '+s.correct+' ganador</div>'
@@ -482,9 +480,10 @@ function renderTabla() {
     + '<th>#</th><th>Nombre</th><th>Pts</th><th>Exactos</th><th>Ganador</th><th>PJ</th>'
     + '</tr></thead><tbody>';
 
-  var rank = 1;
+  var groupRank = 0;
   standings.forEach(function(s,i) {
-    if (i > 0 && standings[i].total < standings[i-1].total) rank = i+1;
+    if (i === 0 || standings[i].total < standings[i-1].total) groupRank++;
+    var rank = groupRank;
     var rb;
     if (rank===1) rb = '<span class="rank-badge rank-1">1</span>';
     else if (rank===2) rb = '<span class="rank-badge rank-2">2</span>';
