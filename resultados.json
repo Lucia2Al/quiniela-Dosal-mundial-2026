@@ -196,7 +196,10 @@
       "grupo": "I",
       "local": "Francia",
       "visitante": "Senegal",
-      "resultado": null
+      "resultado": [
+        3,
+        1
+      ]
     },
     "P19": {
       "fecha": "Mar 16 Jun",
