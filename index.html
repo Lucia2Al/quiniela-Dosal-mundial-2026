@@ -42,6 +42,14 @@
   .tab-content { display: none; padding: 16px; max-width: 900px; margin: 0 auto; }
   .tab-content.active { display: block; }
 
+  /* Goleadores reales */
+  .scorer-row-real { display:flex; align-items:center; gap:10px; padding:10px 14px; border-top:1px solid var(--border); font-size:0.88rem; }
+  .scorer-row-real:first-of-type { border-top:none; }
+  .scorer-rank { font-weight:700; color:var(--text-muted); min-width:22px; }
+  .scorer-info { flex:1; }
+  .scorer-goals { font-weight:800; font-size:1.05rem; color:var(--green); }
+  .scorer-match { background:rgba(34,197,94,0.07); }
+
   /* Grupos del mundial */
   .grupos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
   .group-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
@@ -448,7 +456,7 @@ function renderTab(tab) {
   else if (tab==='partidos') renderPartidos();
   else if (tab==='jugadores') renderJugadores();
   else if (tab==='campeon') renderCampeon();
-  else if (tab==='goleador') renderGoleador();
+  else if (tab==='goleador') { loadRemoteScorers().then(function(){ renderGoleador(); }); }
   else if (tab==='grupos') renderGrupos();
   else if (tab==='reglas') renderReglas();
   else if (tab==='admin') { loadRemoteResults().then(function(){ renderAdmin(); }); }
@@ -790,22 +798,23 @@ function renderGoleador() {
 
   if (!bonus.goleador) html += '<div class="bonus-note">&#x2139;&#xFE0F; El goleador real aún no ha sido registrado en la pestaña Admin.</div>';
 
-  // Live scorers
-  html += '<div class="scorers-section"><h3>&#x26BD; Tabla de goleadores del torneo</h3><div id="scorers-list">';
-  if (scorers.length === 0) {
-    html += '<p style="font-size:0.82rem;color:var(--text-muted);padding:8px 0">No hay datos aún. Agrega jugadores con sus goles.</p>';
+  // Real scorers from GitHub
+  html += '<div class="scorers-section"><h3>&#x26BD; Goleadores del torneo</h3>';
+  if (!remoteScorers || !remoteScorers.goleadores || remoteScorers.goleadores.length === 0) {
+    html += '<p style="font-size:0.82rem;color:var(--text-muted);padding:8px 0">Sin datos aún — se actualizan automáticamente con el briefing diario.</p>';
   } else {
-    var sorted2 = scorers.slice().sort(function(a,b){ return (b.goals||0)-(a.goals||0); });
-    sorted2.forEach(function(s, i) {
-      html += '<div class="scorer-row">'
-        + '<span style="font-weight:700;color:var(--text-muted);min-width:24px">'+(i+1)+'.</span>'
-        + '<input class="scorer-name-input" value="'+esc(s.name)+'" onchange="updateScorer('+i+',\'name\',this.value)" placeholder="Jugador">'
-        + '<input class="scorer-goals-input" type="number" min="0" value="'+(s.goals||0)+'" onchange="updateScorer('+i+',\'goals\',parseInt(this.value)||0)">'
-        + '<button class="btn-remove" onclick="removeScorer('+i+')">&#x2715;</button>'
+    html += '<p style="font-size:0.72rem;color:var(--text-muted);margin-bottom:10px">Actualizado: '+(remoteScorers._ultima_actualizacion||'')+'</p>';
+    remoteScorers.goleadores.forEach(function(s, i) {
+      var isMatch = bonus.goleador && bonus.goleador.toLowerCase().trim()===s.jugador.toLowerCase().trim();
+      html += '<div class="scorer-row-real'+(isMatch?' scorer-match':'')+'">'
+        + '<span class="scorer-rank">'+(i+1)+'.</span>'
+        + '<span class="scorer-info">'+(s.bandera||'')+' <strong>'+esc(s.jugador)+'</strong> · '+esc(s.pais)+'</span>'
+        + '<span class="scorer-goals">'+s.goles+' &#x26BD;</span>'
+        + (isMatch?'<span style="color:var(--exact);font-weight:700;margin-left:6px">&#x2713;</span>':'')
         + '</div>';
     });
   }
-  html += '</div><button class="btn-add" onclick="addScorer()">+ Agregar jugador</button></div>';
+  html += '</div>';
 
   document.getElementById('tab-goleador').innerHTML = html;
 }
@@ -1083,6 +1092,21 @@ function exportJSON() {
 
 var GITHUB_REPO = 'Lucia2Al/quiniela-Dosal-mundial-2026';
 var RESULTS_PATH = 'resultados.json';
+var SCORERS_PATH = 'goleadores.json';
+var remoteScorers = null;
+
+async function loadRemoteScorers() {
+  try {
+    var apiUrl = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + SCORERS_PATH;
+    var headers = { 'Accept': 'application/vnd.github.v3+json' };
+    var token = getSyncToken();
+    if (token) headers['Authorization'] = 'token ' + token;
+    var r = await fetch(apiUrl, { headers: headers });
+    if (!r.ok) return;
+    var fd = await r.json();
+    remoteScorers = JSON.parse(b64DecodeUTF8(fd.content));
+  } catch(e) {}
+}
 
 function getSyncToken() { return localStorage.getItem('quiniela_sync_token') || ''; }
 
