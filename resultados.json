@@ -177,7 +177,10 @@
       "grupo": "G",
       "local": "Irán",
       "visitante": "Nueva Zelanda",
-      "resultado": null
+      "resultado": [
+        2,
+        2
+      ]
     },
     "P17": {
       "fecha": "Mar 16 Jun",
