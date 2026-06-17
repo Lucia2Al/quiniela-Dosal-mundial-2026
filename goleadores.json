@@ -1,9 +1,12 @@
 {
-  "_ultima_actualizacion": "2026-06-16",
+  "_ultima_actualizacion": "2026-06-17",
   "goleadores": [
-    {"jugador": "Elijah Just", "pais": "Nueva Zelanda", "bandera": "🇳🇿", "goles": 2},
-    {"jugador": "Yasin Ayiri", "pais": "Suecia", "bandera": "🇸🇪", "goles": 2},
+    {"jugador": "Lionel Messi", "pais": "Argentina", "bandera": "🇦🇷", "goles": 3},
+    {"jugador": "Kylian Mbappé", "pais": "Francia", "bandera": "🇫🇷", "goles": 2},
+    {"jugador": "Erling Haaland", "pais": "Noruega", "bandera": "🇳🇴", "goles": 2},
+    {"jugador": "Kai Havertz", "pais": "Alemania", "bandera": "🇩🇪", "goles": 2},
     {"jugador": "Folarin Balogun", "pais": "EE.UU.", "bandera": "🇺🇸", "goles": 2},
-    {"jugador": "Kai Havertz", "pais": "Alemania", "bandera": "🇩🇪", "goles": 2}
+    {"jugador": "Yasin Ayari", "pais": "Suecia", "bandera": "🇸🇪", "goles": 2},
+    {"jugador": "Elijah Just", "pais": "Nueva Zelanda", "bandera": "🇳🇿", "goles": 2}
   ]
 }
