@@ -218,7 +218,10 @@
       "grupo": "J",
       "local": "Argentina",
       "visitante": "Argelia",
-      "resultado": null
+      "resultado": [
+        3,
+        1
+      ]
     },
     "P21": {
       "fecha": "Mié 17 Jun",
