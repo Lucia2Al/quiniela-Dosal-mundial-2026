@@ -50,6 +50,19 @@
   .scorer-goals { font-weight:800; font-size:1.05rem; color:var(--green); }
   .scorer-match { background:rgba(34,197,94,0.07); }
 
+  /* Odds / apuestas */
+  .odds-section { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-top: 16px; }
+  .odds-section h3 { font-size: 0.88rem; font-weight: 700; color: var(--text); padding: 10px 14px 8px; border-bottom: 2px solid var(--gold); background: linear-gradient(to right, rgba(240,192,64,0.1), transparent); display:flex; align-items:center; gap:6px; }
+  .odds-source { font-size:0.7rem; color:var(--text-muted); padding:3px 14px 6px; }
+  .odds-row { display:flex; align-items:center; gap:8px; padding:7px 14px; border-top:1px solid var(--border); font-size:0.84rem; }
+  .odds-row:first-of-type { border-top:none; }
+  .odds-rank { font-weight:700; color:var(--text-muted); min-width:20px; font-size:0.78rem; }
+  .odds-info { flex:1; }
+  .odds-bar-wrap { width:60px; background:var(--border); border-radius:4px; height:5px; flex-shrink:0; }
+  .odds-bar-fill { background:var(--gold); height:5px; border-radius:4px; }
+  .odds-prob { font-weight:800; color:var(--gold-dark); min-width:44px; text-align:right; font-size:0.82rem; }
+  .odds-match { background:rgba(240,192,64,0.09); }
+
   /* Grupos del mundial */
   .grupos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
   .group-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
@@ -455,8 +468,8 @@ function renderTab(tab) {
   if (tab==='tabla') renderTabla();
   else if (tab==='partidos') renderPartidos();
   else if (tab==='jugadores') renderJugadores();
-  else if (tab==='campeon') renderCampeon();
-  else if (tab==='goleador') { loadRemoteScorers().then(function(){ renderGoleador(); }); }
+  else if (tab==='campeon') { loadRemoteApuestas().then(function(){ renderCampeon(); }); }
+  else if (tab==='goleador') { Promise.all([loadRemoteScorers(), loadRemoteApuestas()]).then(function(){ renderGoleador(); }); }
   else if (tab==='grupos') renderGrupos();
   else if (tab==='reglas') renderReglas();
   else if (tab==='admin') { loadRemoteResults().then(function(){ renderAdmin(); }); }
@@ -759,6 +772,25 @@ function renderCampeon() {
 
   if (!bonus.campeon) html += '<div class="bonus-note">&#x2139;&#xFE0F; El campeón real aún no ha sido registrado en la pestaña Admin.</div>';
 
+  // Apuestas — campeón
+  if (remoteApuestas && remoteApuestas.campeon && remoteApuestas.campeon.length > 0) {
+    var maxProbC = remoteApuestas.campeon[0].prob;
+    html += '<div class="odds-section"><h3>&#x1F4CA; Mercados de apuestas — Campeón del Mundial</h3>'
+      + '<div class="odds-source">Polymarket &middot; Actualizado: ' + (remoteApuestas._ultima_actualizacion||'') + '</div>';
+    remoteApuestas.campeon.forEach(function(o, i) {
+      var barW = Math.round(o.prob / maxProbC * 100);
+      var isWin = bonus.campeon && bonus.campeon.toLowerCase().trim() === o.pais.toLowerCase().trim();
+      html += '<div class="odds-row' + (isWin ? ' odds-match' : '') + '">'
+        + '<span class="odds-rank">' + (i+1) + '.</span>'
+        + '<span class="odds-info">' + (o.bandera||'') + ' <strong>' + esc(o.pais) + '</strong></span>'
+        + '<div class="odds-bar-wrap"><div class="odds-bar-fill" style="width:' + barW + '%"></div></div>'
+        + '<span class="odds-prob">' + o.prob + '%</span>'
+        + (isWin ? '<span style="color:var(--gold-dark);font-weight:700;margin-left:4px">&#x2713;</span>' : '')
+        + '</div>';
+    });
+    html += '</div>';
+  }
+
   document.getElementById('tab-campeon').innerHTML = html;
 }
 
@@ -815,6 +847,25 @@ function renderGoleador() {
     });
   }
   html += '</div>';
+
+  // Apuestas — goleador
+  if (remoteApuestas && remoteApuestas.goleador && remoteApuestas.goleador.length > 0) {
+    var maxProbG = remoteApuestas.goleador[0].prob;
+    html += '<div class="odds-section"><h3>&#x1F4CA; Mercados de apuestas — Bota de Oro</h3>'
+      + '<div class="odds-source">Polymarket &middot; Actualizado: ' + (remoteApuestas._ultima_actualizacion||'') + '</div>';
+    remoteApuestas.goleador.forEach(function(o, i) {
+      var barW = Math.round(o.prob / maxProbG * 100);
+      var isMatch = bonus.goleador && bonus.goleador.toLowerCase().trim() === o.jugador.toLowerCase().trim();
+      html += '<div class="odds-row' + (isMatch ? ' odds-match' : '') + '">'
+        + '<span class="odds-rank">' + (i+1) + '.</span>'
+        + '<span class="odds-info">' + (o.bandera||'') + ' <strong>' + esc(o.jugador) + '</strong> · ' + esc(o.pais) + '</span>'
+        + '<div class="odds-bar-wrap"><div class="odds-bar-fill" style="width:' + barW + '%"></div></div>'
+        + '<span class="odds-prob">' + o.prob + '%</span>'
+        + (isMatch ? '<span style="color:var(--gold-dark);font-weight:700;margin-left:4px">&#x2713;</span>' : '')
+        + '</div>';
+    });
+    html += '</div>';
+  }
 
   document.getElementById('tab-goleador').innerHTML = html;
 }
@@ -1093,7 +1144,9 @@ function exportJSON() {
 var GITHUB_REPO = 'Lucia2Al/quiniela-Dosal-mundial-2026';
 var RESULTS_PATH = 'resultados.json';
 var SCORERS_PATH = 'goleadores.json';
+var APUESTAS_PATH = 'apuestas.json';
 var remoteScorers = null;
+var remoteApuestas = null;
 
 async function loadRemoteScorers() {
   try {
@@ -1105,6 +1158,19 @@ async function loadRemoteScorers() {
     if (!r.ok) return;
     var fd = await r.json();
     remoteScorers = JSON.parse(b64DecodeUTF8(fd.content));
+  } catch(e) {}
+}
+
+async function loadRemoteApuestas() {
+  try {
+    var apiUrl = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + APUESTAS_PATH;
+    var headers = { 'Accept': 'application/vnd.github.v3+json' };
+    var token = getSyncToken();
+    if (token) headers['Authorization'] = 'token ' + token;
+    var r = await fetch(apiUrl, { headers: headers });
+    if (!r.ok) return;
+    var fd = await r.json();
+    remoteApuestas = JSON.parse(b64DecodeUTF8(fd.content));
   } catch(e) {}
 }
 
