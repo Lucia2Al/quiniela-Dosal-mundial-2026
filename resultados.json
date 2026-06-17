@@ -188,7 +188,10 @@
       "grupo": "J",
       "local": "Austria",
       "visitante": "Jordania",
-      "resultado": null
+      "resultado": [
+        3,
+        1
+      ]
     },
     "P18": {
       "fecha": "Mar 16 Jun",
