@@ -243,7 +243,10 @@
       "grupo": "L",
       "local": "Inglaterra",
       "visitante": "Croacia",
-      "resultado": null
+      "resultado": [
+        4,
+        2
+      ]
     },
     "P23": {
       "fecha": "Mié 17 Jun",
