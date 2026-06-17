@@ -232,7 +232,10 @@
       "grupo": "K",
       "local": "Portugal",
       "visitante": "Rep. Dem. del Congo",
-      "resultado": null
+      "resultado": [
+        1,
+        1
+      ]
     },
     "P22": {
       "fecha": "Mié 17 Jun",
