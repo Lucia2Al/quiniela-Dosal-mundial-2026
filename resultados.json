@@ -265,7 +265,10 @@
       "grupo": "K",
       "local": "Uzbekistán",
       "visitante": "Colombia",
-      "resultado": null
+      "resultado": [
+        1,
+        3
+      ]
     },
     "P25": {
       "fecha": "Jue 18 Jun",
