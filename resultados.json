@@ -287,7 +287,10 @@
       "grupo": "B",
       "local": "Suiza",
       "visitante": "Bosnia y Herzegovina",
-      "resultado": null
+      "resultado": [
+        4,
+        1
+      ]
     },
     "P27": {
       "fecha": "Jue 18 Jun",
