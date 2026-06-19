@@ -309,7 +309,10 @@
       "grupo": "A",
       "local": "México",
       "visitante": "Rep. Corea",
-      "resultado": null
+      "resultado": [
+        1,
+        0
+      ]
     },
     "P29": {
       "fecha": "Vie 19 Jun",
