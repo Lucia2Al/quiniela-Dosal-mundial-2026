@@ -553,18 +553,18 @@ function renderPartidos() {
   MATCHES.forEach(function(m) { if (uniqueDays.indexOf(m.date) < 0) uniqueDays.push(m.date); });
   var todayStr = getTodayStr();
 
-  // Chip bar — special filters + day-by-day
-  var html = '<div class="day-chips">';
-  [['__hoy__','📍 Hoy'],['__historicos__','⏪ Jugados'],['__proximos__','⏩ Próximos']].forEach(function(s) {
-    html += '<button class="day-chip'+(selectedDay===s[0]?' active':'')+'" onclick="selectDay(\''+s[0]+'\')">'+s[1]+'</button>';
-  });
-  html += '<span style="display:inline-block;width:1px;background:var(--border);margin:4px 4px;align-self:stretch;flex-shrink:0"></span>';
+  // Dropdown filter
+  var html = '<div style="margin-bottom:16px;">'
+    + '<select id="day-select" onchange="selectDay(this.value)" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--border);font-size:0.95rem;background:white;color:var(--text);cursor:pointer;">'
+    + '<option value="__hoy__"'+(selectedDay==='__hoy__'?' selected':'')+'>&#x1F4CD; Hoy</option>'
+    + '<option value="__historicos__"'+(selectedDay==='__historicos__'?' selected':'')+'>&#x23EA; Jugados</option>'
+    + '<option value="__proximos__"'+(selectedDay==='__proximos__'?' selected':'')+'>&#x23E9; Pr&#xF3;ximos</option>'
+    + '<option disabled>&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;</option>';
   uniqueDays.forEach(function(d) {
-    var parts = d.split(' ');
-    var label = parts[0]+' '+parts[1]+(d===todayStr?' ◆':'');
-    html += '<button class="day-chip'+(selectedDay===d?' active':'')+'" onclick="selectDay(\''+d+'\')">'+label+'</button>';
+    var label = d + (d===todayStr ? ' &#x25C6; hoy' : '');
+    html += '<option value="'+d+'"'+(selectedDay===d?' selected':'')+'>'+label+'</option>';
   });
-  html += '</div>';
+  html += '</select></div>';
 
   // Build match list
   var matchList, showDateSep = false;
