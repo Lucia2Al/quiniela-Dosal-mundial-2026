@@ -287,10 +287,7 @@
       "grupo": "B",
       "local": "Suiza",
       "visitante": "Bosnia y Herzegovina",
-      "resultado": [
-        4,
-        1
-      ]
+      "resultado": [4, 1]
     },
     "P27": {
       "fecha": "Jue 18 Jun",
@@ -298,10 +295,7 @@
       "grupo": "B",
       "local": "Canadá",
       "visitante": "Catar",
-      "resultado": [
-        6,
-        0
-      ]
+      "resultado": [6, 0]
     },
     "P28": {
       "fecha": "Jue 18 Jun",
@@ -309,10 +303,7 @@
       "grupo": "A",
       "local": "México",
       "visitante": "Rep. Corea",
-      "resultado": [
-        1,
-        0
-      ]
+      "resultado": [1, 0]
     },
     "P29": {
       "fecha": "Vie 19 Jun",
