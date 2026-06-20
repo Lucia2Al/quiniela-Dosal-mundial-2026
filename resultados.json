@@ -353,7 +353,10 @@
       "grupo": "D",
       "local": "Turquía",
       "visitante": "Paraguay",
-      "resultado": null
+      "resultado": [
+        0,
+        1
+      ]
     },
     "P33": {
       "fecha": "Vie 19 Jun",
