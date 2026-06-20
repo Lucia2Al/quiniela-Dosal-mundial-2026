@@ -372,7 +372,10 @@
       "grupo": "F",
       "local": "Países Bajos",
       "visitante": "Suecia",
-      "resultado": null
+      "resultado": [
+        5,
+        1
+      ]
     },
     "P35": {
       "fecha": "Sáb 20 Jun",
