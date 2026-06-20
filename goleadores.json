@@ -1,5 +1,5 @@
 {
-  "_ultima_actualizacion": "2026-06-19",
+  "_ultima_actualizacion": "2026-06-20",
   "goleadores": [
     {"jugador": "Lionel Messi", "pais": "Argentina", "bandera": "🇦🇷", "goles": 3},
     {"jugador": "Jonathan David", "pais": "Canadá", "bandera": "🇨🇦", "goles": 3},
@@ -11,6 +11,9 @@
     {"jugador": "Elijah Just", "pais": "Nueva Zelanda", "bandera": "🇳🇿", "goles": 2},
     {"jugador": "Harry Kane", "pais": "Inglaterra", "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "goles": 2},
     {"jugador": "Johan Manzambi", "pais": "Suiza", "bandera": "🇨🇭", "goles": 2},
-    {"jugador": "Cyle Larin", "pais": "Canadá", "bandera": "🇨🇦", "goles": 2}
+    {"jugador": "Cyle Larin", "pais": "Canadá", "bandera": "🇨🇦", "goles": 2},
+    {"jugador": "Vinicius Junior", "pais": "Brasil", "bandera": "🇧🇷", "goles": 2},
+    {"jugador": "Matheus Cunha", "pais": "Brasil", "bandera": "🇧🇷", "goles": 2},
+    {"jugador": "Ismael Saibari", "pais": "Marruecos", "bandera": "🇲🇦", "goles": 2}
   ]
 }

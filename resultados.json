@@ -1,6 +1,6 @@
 {
   "_instrucciones": "Resultados reales del Mundial 2026. Formato: [local, visitante] o null si pendiente. Orden = número de partido en el Excel (no necesariamente cronológico — ver _fechas_reales).",
-  "_ultima_actualizacion": "2026-06-19",
+  "_ultima_actualizacion": "2026-06-20",
   "_errores_fecha_excel": {
     "P5": "Excel marca Vie 12 Jun → real: Sáb 13 Jun 22:00 CDMX",
     "P17": "Excel marca Lun 15 Jun → real: Mar 16 Jun 22:00 CDMX"
@@ -311,7 +311,7 @@
       "grupo": "D",
       "local": "Estados Unidos",
       "visitante": "Australia",
-      "resultado": null
+      "resultado": [2, 0]
     },
     "P30": {
       "fecha": "Vie 19 Jun",
@@ -319,7 +319,7 @@
       "grupo": "C",
       "local": "Escocia",
       "visitante": "Marruecos",
-      "resultado": null
+      "resultado": [0, 1]
     },
     "P31": {
       "fecha": "Vie 19 Jun",
@@ -327,7 +327,7 @@
       "grupo": "C",
       "local": "Brasil",
       "visitante": "Haití",
-      "resultado": null
+      "resultado": [3, 0]
     },
     "P32": {
       "fecha": "Vie 19 Jun",
@@ -335,15 +335,16 @@
       "grupo": "D",
       "local": "Turquía",
       "visitante": "Paraguay",
-      "resultado": null
+      "resultado": [0, 1]
     },
     "P33": {
-      "fecha": "Vie 19 Jun",
+      "fecha": "Dom 21 Jun",
       "hora": "22:00",
       "grupo": "F",
       "local": "Túnez",
       "visitante": "Japón",
-      "resultado": null
+      "resultado": null,
+      "_nota": "Fecha real: Dom 21 Jun (el Excel y JSON original tenian Vie 19 Jun por error)"
     },
     "P34": {
       "fecha": "Sáb 20 Jun",
