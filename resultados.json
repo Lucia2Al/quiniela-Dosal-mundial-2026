@@ -383,7 +383,10 @@
       "grupo": "E",
       "local": "Alemania",
       "visitante": "Costa de Marfil",
-      "resultado": null
+      "resultado": [
+        2,
+        1
+      ]
     },
     "P36": {
       "fecha": "Sáb 20 Jun",
