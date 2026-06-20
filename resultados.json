@@ -342,7 +342,10 @@
       "grupo": "C",
       "local": "Brasil",
       "visitante": "Haití",
-      "resultado": null
+      "resultado": [
+        3,
+        0
+      ]
     },
     "P32": {
       "fecha": "Vie 19 Jun",
