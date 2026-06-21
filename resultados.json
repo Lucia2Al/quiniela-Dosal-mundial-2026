@@ -419,7 +419,10 @@
       "grupo": "G",
       "local": "Bélgica",
       "visitante": "Irán",
-      "resultado": null
+      "resultado": [
+        0,
+        0
+      ]
     },
     "P39": {
       "fecha": "Dom 21 Jun",
