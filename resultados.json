@@ -408,7 +408,10 @@
       "grupo": "H",
       "local": "España",
       "visitante": "Arabia Saudita",
-      "resultado": null
+      "resultado": [
+        4,
+        0
+      ]
     },
     "P38": {
       "fecha": "Dom 21 Jun",
