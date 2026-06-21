@@ -364,7 +364,10 @@
       "grupo": "F",
       "local": "Túnez",
       "visitante": "Japón",
-      "resultado": null
+      "resultado": [
+        0,
+        4
+      ]
     },
     "P34": {
       "fecha": "Sáb 20 Jun",
