@@ -452,7 +452,10 @@
       "grupo": "J",
       "local": "Argentina",
       "visitante": "Austria",
-      "resultado": null
+      "resultado": [
+        2,
+        0
+      ]
     },
     "P42": {
       "fecha": "Lun 22 Jun",
