@@ -2,14 +2,14 @@
   "_ultima_actualizacion": "2026-06-20",
   "_fuente": "Polymarket",
   "goleador": [
-    {"jugador": "Kylian Mbappé",   "pais": "Francia",    "bandera": "🇫🇷", "prob": 24.0},
-    {"jugador": "Harry Kane",      "pais": "Inglaterra",  "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 22.0},
-    {"jugador": "Lionel Messi",    "pais": "Argentina",   "bandera": "🇦🇷", "prob": 21.6},
-    {"jugador": "Erling Haaland",  "pais": "Noruega",     "bandera": "🇳🇴", "prob": 9.0},
-    {"jugador": "Kai Havertz",     "pais": "Alemania",    "bandera": "🇩🇪", "prob": 6.0},
-    {"jugador": "Lamine Yamal",    "pais": "España",      "bandera": "🇪🇸", "prob": 3.0},
-    {"jugador": "Vinicius Junior", "pais": "Brasil",      "bandera": "🇧🇷", "prob": 2.0},
-    {"jugador": "Cristiano Ronaldo","pais": "Portugal",   "bandera": "🇵🇹", "prob": 2.0}
+    {"jugador": "Lionel Messi",         "pais": "Argentina",   "bandera": "🇦🇷", "prob": 34.0},
+    {"jugador": "Kylian Mbappé",        "pais": "Francia",     "bandera": "🇫🇷", "prob": 33.0},
+    {"jugador": "Harry Kane",           "pais": "Inglaterra",  "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 19.5},
+    {"jugador": "Erling Haaland",       "pais": "Noruega",     "bandera": "🇳🇴", "prob": 9.0},
+    {"jugador": "Kai Havertz",          "pais": "Alemania",    "bandera": "🇩🇪", "prob": 6.0},
+    {"jugador": "Lamine Yamal",         "pais": "España",      "bandera": "🇪🇸", "prob": 3.0},
+    {"jugador": "Vinicius Junior",      "pais": "Brasil",      "bandera": "🇧🇷", "prob": 2.0},
+    {"jugador": "Cristiano Ronaldo",    "pais": "Portugal",    "bandera": "🇵🇹", "prob": 2.0}
   ],
   "campeon": [
     {"pais": "Francia",       "bandera": "🇫🇷", "prob": 19.7},
