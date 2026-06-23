@@ -507,7 +507,10 @@
       "grupo": "L",
       "local": "Inglaterra",
       "visitante": "Ghana",
-      "resultado": null
+      "resultado": [
+        0,
+        0
+      ]
     },
     "P47": {
       "fecha": "Mar 23 Jun",
