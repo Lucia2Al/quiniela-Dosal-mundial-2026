@@ -463,7 +463,10 @@
       "grupo": "I",
       "local": "Francia",
       "visitante": "Irak",
-      "resultado": null
+      "resultado": [
+        3,
+        0
+      ]
     },
     "P43": {
       "fecha": "Lun 22 Jun",
