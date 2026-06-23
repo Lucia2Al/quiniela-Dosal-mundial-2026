@@ -496,7 +496,10 @@
       "grupo": "K",
       "local": "Portugal",
       "visitante": "Uzbekistán",
-      "resultado": null
+      "resultado": [
+        5,
+        0
+      ]
     },
     "P46": {
       "fecha": "Mar 23 Jun",
