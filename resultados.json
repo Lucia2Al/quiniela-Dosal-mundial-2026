@@ -529,7 +529,10 @@
       "grupo": "K",
       "local": "Colombia",
       "visitante": "Rep. Dem. del Congo",
-      "resultado": null
+      "resultado": [
+        1,
+        0
+      ]
     },
     "P49": {
       "fecha": "Mié 24 Jun",
