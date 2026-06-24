@@ -551,7 +551,10 @@
       "grupo": "B",
       "local": "Bosnia y Herzegovina",
       "visitante": "Catar",
-      "resultado": null
+      "resultado": [
+        3,
+        1
+      ]
     },
     "P51": {
       "fecha": "Mié 24 Jun",
