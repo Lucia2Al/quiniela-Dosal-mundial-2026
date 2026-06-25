@@ -617,7 +617,10 @@
       "grupo": "E",
       "local": "Ecuador",
       "visitante": "Alemania",
-      "resultado": null
+      "resultado": [
+        2,
+        1
+      ]
     },
     "P57": {
       "fecha": "Jue 25 Jun",
