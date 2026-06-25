@@ -562,7 +562,10 @@
       "grupo": "C",
       "local": "Escocia",
       "visitante": "Brasil",
-      "resultado": null
+      "resultado": [
+        0,
+        3
+      ]
     },
     "P52": {
       "fecha": "Mié 24 Jun",
