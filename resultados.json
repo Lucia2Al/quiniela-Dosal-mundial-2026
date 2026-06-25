@@ -595,7 +595,10 @@
       "grupo": "A",
       "local": "Sudáfrica",
       "visitante": "Rep. Corea",
-      "resultado": null
+      "resultado": [
+        1,
+        0
+      ]
     },
     "P55": {
       "fecha": "Jue 25 Jun",
