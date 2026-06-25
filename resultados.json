@@ -606,7 +606,10 @@
       "grupo": "E",
       "local": "Curazao",
       "visitante": "Costa de Marfil",
-      "resultado": null
+      "resultado": [
+        0,
+        2
+      ]
     },
     "P56": {
       "fecha": "Jue 25 Jun",
