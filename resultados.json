@@ -584,7 +584,10 @@
       "grupo": "A",
       "local": "Rep. Checa",
       "visitante": "México",
-      "resultado": null
+      "resultado": [
+        0,
+        3
+      ]
     },
     "P54": {
       "fecha": "Mié 24 Jun",
