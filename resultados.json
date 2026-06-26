@@ -650,7 +650,10 @@
       "grupo": "D",
       "local": "Turquía",
       "visitante": "Estados Unidos",
-      "resultado": null
+      "resultado": [
+        3,
+        2
+      ]
     },
     "P60": {
       "fecha": "Jue 25 Jun",
