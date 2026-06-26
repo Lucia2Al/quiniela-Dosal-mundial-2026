@@ -683,7 +683,10 @@
       "grupo": "I",
       "local": "Senegal",
       "visitante": "Irak",
-      "resultado": null
+      "resultado": [
+        5,
+        0
+      ]
     },
     "P63": {
       "fecha": "Vie 26 Jun",
