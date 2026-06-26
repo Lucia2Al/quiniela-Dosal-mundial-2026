@@ -639,7 +639,10 @@
       "grupo": "F",
       "local": "Túnez",
       "visitante": "Países Bajos",
-      "resultado": null
+      "resultado": [
+        1,
+        3
+      ]
     },
     "P59": {
       "fecha": "Jue 25 Jun",
