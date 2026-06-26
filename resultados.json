@@ -661,7 +661,10 @@
       "grupo": "D",
       "local": "Paraguay",
       "visitante": "Australia",
-      "resultado": null
+      "resultado": [
+        0,
+        0
+      ]
     },
     "P61": {
       "fecha": "Vie 26 Jun",
