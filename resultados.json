@@ -672,7 +672,10 @@
       "grupo": "I",
       "local": "Noruega",
       "visitante": "Francia",
-      "resultado": null
+      "resultado": [
+        1,
+        4
+      ]
     },
     "P62": {
       "fecha": "Vie 26 Jun",
