@@ -705,7 +705,10 @@
       "grupo": "H",
       "local": "Uruguay",
       "visitante": "España",
-      "resultado": null
+      "resultado": [
+        0,
+        1
+      ]
     },
     "P65": {
       "fecha": "Vie 26 Jun",
