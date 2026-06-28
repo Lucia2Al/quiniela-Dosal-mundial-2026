@@ -768,7 +768,10 @@
       "grupo": "K",
       "local": "Rep. Dem. del Congo",
       "visitante": "Uzbekistán",
-      "resultado": null
+      "resultado": [
+        3,
+        1
+      ]
     },
     "P71": {
       "fecha": "Sáb 27 Jun",
