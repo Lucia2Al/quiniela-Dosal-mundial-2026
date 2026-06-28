@@ -727,7 +727,10 @@
       "grupo": "G",
       "local": "Nueva Zelanda",
       "visitante": "Bélgica",
-      "resultado": null
+      "resultado": [
+        1,
+        5
+      ]
     },
     "P67": {
       "fecha": "Sáb 27 Jun",
@@ -746,7 +749,10 @@
       "grupo": "L",
       "local": "Croacia",
       "visitante": "Ghana",
-      "resultado": null
+      "resultado": [
+        2,
+        1
+      ]
     },
     "P69": {
       "fecha": "Sáb 27 Jun",
