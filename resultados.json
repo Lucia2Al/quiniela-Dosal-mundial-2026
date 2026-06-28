@@ -735,7 +735,10 @@
       "grupo": "L",
       "local": "Panamá",
       "visitante": "Inglaterra",
-      "resultado": null
+      "resultado": [
+        0,
+        2
+      ]
     },
     "P68": {
       "fecha": "Sáb 27 Jun",
