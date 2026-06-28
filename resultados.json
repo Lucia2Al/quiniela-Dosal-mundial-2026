@@ -776,7 +776,10 @@
       "grupo": "J",
       "local": "Argelia",
       "visitante": "Austria",
-      "resultado": null
+      "resultado": [
+        3,
+        3
+      ]
     },
     "P72": {
       "fecha": "Sáb 27 Jun",
