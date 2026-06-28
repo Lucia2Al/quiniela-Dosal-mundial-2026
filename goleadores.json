@@ -1,10 +1,11 @@
 {
-  "_ultima_actualizacion": "2026-06-26",
+  "_ultima_actualizacion": "2026-06-28",
   "goleadores": [
-    {"jugador": "Lionel Messi",         "pais": "Argentina",      "bandera": "🇦🇷", "goles": 5},
+    {"jugador": "Lionel Messi",         "pais": "Argentina",      "bandera": "🇦🇷", "goles": 6},
     {"jugador": "Kylian Mbappé",        "pais": "Francia",        "bandera": "🇫🇷", "goles": 4},
     {"jugador": "Erling Haaland",       "pais": "Noruega",        "bandera": "🇳🇴", "goles": 4},
     {"jugador": "Vinicius Jr.",         "pais": "Brasil",         "bandera": "🇧🇷", "goles": 4},
+    {"jugador": "Ousmane Dembélé",      "pais": "Francia",        "bandera": "🇫🇷", "goles": 4},
     {"jugador": "Jonathan David",       "pais": "Canadá",         "bandera": "🇨🇦", "goles": 3},
     {"jugador": "Matheus Cunha",        "pais": "Brasil",         "bandera": "🇧🇷", "goles": 3},
     {"jugador": "Denis Undav",          "pais": "Alemania",       "bandera": "🇩🇪", "goles": 3},
