@@ -2,21 +2,291 @@
   "_ultima_actualizacion": "2026-06-28",
   "_instrucciones": "Pronósticos Ronda de 32. Formato: [local, visitante] o null si pendiente/sin pronóstico.",
   "pronosticos": {
-    "R1":  { "LDE": [1,0], "PDE": [0,1], "JDE": [0,0], "EDO": [2,1], "APC": [1,0], "EER": [1,1], "DDT": [1,2], "EDE": [2,1], "EIP": [1,1], "MyE": [0,2], "MFC": [3,1] },
-    "R2":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R3":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R4":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R5":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R6":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R7":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R8":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R9":  { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R10": { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R11": { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R12": { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R13": { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R14": { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R15": { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null },
-    "R16": { "LDE": null, "PDE": null, "JDE": null, "EDO": null, "APC": null, "EER": null, "DDT": null, "EDE": null, "EIP": null, "MyE": null, "MFC": null }
+    "R1": {
+      "LDE": [
+        1,
+        0
+      ],
+      "PDE": [
+        0,
+        1
+      ],
+      "JDE": [
+        0,
+        0
+      ],
+      "EDO": [
+        2,
+        1
+      ],
+      "APC": [
+        1,
+        0
+      ],
+      "EER": [
+        1,
+        1
+      ],
+      "DDT": [
+        1,
+        2
+      ],
+      "EDE": [
+        2,
+        1
+      ],
+      "EIP": [
+        1,
+        1
+      ],
+      "MyE": [
+        0,
+        2
+      ],
+      "MFC": [
+        3,
+        1
+      ]
+    },
+    "R2": {
+      "LDE": [
+        2,
+        1
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R3": {
+      "LDE": [
+        2,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R4": {
+      "LDE": [
+        2,
+        1
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R5": {
+      "LDE": [
+        1,
+        2
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R6": {
+      "LDE": [
+        3,
+        1
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R7": {
+      "LDE": [
+        2,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R8": {
+      "LDE": [
+        2,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R9": {
+      "LDE": [
+        1,
+        1
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R10": {
+      "LDE": [
+        2,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R11": {
+      "LDE": [
+        2,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R12": {
+      "LDE": [
+        2,
+        1
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R13": {
+      "LDE": [
+        2,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R14": {
+      "LDE": [
+        1,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R15": {
+      "LDE": [
+        3,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    },
+    "R16": {
+      "LDE": [
+        1,
+        0
+      ],
+      "PDE": null,
+      "JDE": null,
+      "EDO": null,
+      "APC": null,
+      "EER": null,
+      "DDT": null,
+      "EDE": null,
+      "EIP": null,
+      "MyE": null,
+      "MFC": null
+    }
   }
 }
