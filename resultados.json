@@ -784,7 +784,10 @@
       "grupo": "J",
       "local": "Jordania",
       "visitante": "Argentina",
-      "resultado": null
+      "resultado": [
+        1,
+        3
+      ]
     }
   }
 }
