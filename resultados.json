@@ -804,7 +804,10 @@
       "grupo": "R32",
       "local": "Sudáfrica",
       "visitante": "Canadá",
-      "resultado": null
+      "resultado": [
+        0,
+        1
+      ]
     },
     "R2": {
       "fecha": "Lun 29 Jun",
