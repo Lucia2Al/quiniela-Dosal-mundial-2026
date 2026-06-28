@@ -760,7 +760,10 @@
       "grupo": "K",
       "local": "Colombia",
       "visitante": "Portugal",
-      "resultado": null
+      "resultado": [
+        0,
+        0
+      ]
     },
     "P70": {
       "fecha": "Sáb 27 Jun",
