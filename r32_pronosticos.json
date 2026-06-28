@@ -1,0 +1,19 @@
+{
+  "_ultima_actualizacion": "2026-06-28",
+  "_instrucciones": "Pronósticos Ronda de 32. Formato: [local, visitante] o null si pendiente/sin pronostico.",
+  "pronosticos": {
+    "R1": {
+      "LDE": [1, 0],
+      "PDE": [0, 1],
+      "JDE": [1, 1],
+      "EDO": [2, 1],
+      "APC": [1, 0],
+      "EER": [1, 1],
+      "DDT": null,
+      "EDE": [2, 1],
+      "EIP": [1, 1],
+      "MyE": [0, 2],
+      "MFC": [3, 1]
+    }
+  }
+}

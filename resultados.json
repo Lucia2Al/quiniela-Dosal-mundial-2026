@@ -797,6 +797,134 @@
         1,
         3
       ]
+    },
+    "R1": {
+      "fecha": "Dom 28 Jun",
+      "hora": "13:00",
+      "grupo": "R32",
+      "local": "Sudáfrica",
+      "visitante": "Canadá",
+      "resultado": null
+    },
+    "R2": {
+      "fecha": "Lun 29 Jun",
+      "hora": "11:00",
+      "grupo": "R32",
+      "local": "Brasil",
+      "visitante": "Japón",
+      "resultado": null
+    },
+    "R3": {
+      "fecha": "Lun 29 Jun",
+      "hora": "14:30",
+      "grupo": "R32",
+      "local": "Alemania",
+      "visitante": "Paraguay",
+      "resultado": null
+    },
+    "R4": {
+      "fecha": "Lun 29 Jun",
+      "hora": "19:00",
+      "grupo": "R32",
+      "local": "Países Bajos",
+      "visitante": "Marruecos",
+      "resultado": null
+    },
+    "R5": {
+      "fecha": "Mar 30 Jun",
+      "hora": "11:00",
+      "grupo": "R32",
+      "local": "Costa de Marfil",
+      "visitante": "Noruega",
+      "resultado": null
+    },
+    "R6": {
+      "fecha": "Mar 30 Jun",
+      "hora": "15:00",
+      "grupo": "R32",
+      "local": "Francia",
+      "visitante": "Suecia",
+      "resultado": null
+    },
+    "R7": {
+      "fecha": "Mar 30 Jun",
+      "hora": "19:00",
+      "grupo": "R32",
+      "local": "México",
+      "visitante": "Ecuador",
+      "resultado": null
+    },
+    "R8": {
+      "fecha": "Mié 1 Jul",
+      "hora": "10:00",
+      "grupo": "R32",
+      "local": "Inglaterra",
+      "visitante": "RD Congo",
+      "resultado": null
+    },
+    "R9": {
+      "fecha": "Mié 1 Jul",
+      "hora": "14:00",
+      "grupo": "R32",
+      "local": "Bélgica",
+      "visitante": "Senegal",
+      "resultado": null
+    },
+    "R10": {
+      "fecha": "Mié 1 Jul",
+      "hora": "18:00",
+      "grupo": "R32",
+      "local": "Estados Unidos",
+      "visitante": "Bosnia y Herzegovina",
+      "resultado": null
+    },
+    "R11": {
+      "fecha": "Jue 2 Jul",
+      "hora": "13:00",
+      "grupo": "R32",
+      "local": "España",
+      "visitante": "Austria",
+      "resultado": null
+    },
+    "R12": {
+      "fecha": "Jue 2 Jul",
+      "hora": "17:00",
+      "grupo": "R32",
+      "local": "Portugal",
+      "visitante": "Croacia",
+      "resultado": null
+    },
+    "R13": {
+      "fecha": "Jue 2 Jul",
+      "hora": "21:00",
+      "grupo": "R32",
+      "local": "Suiza",
+      "visitante": "Argelia",
+      "resultado": null
+    },
+    "R14": {
+      "fecha": "Vie 3 Jul",
+      "hora": "12:00",
+      "grupo": "R32",
+      "local": "Australia",
+      "visitante": "Egipto",
+      "resultado": null
+    },
+    "R15": {
+      "fecha": "Vie 3 Jul",
+      "hora": "16:00",
+      "grupo": "R32",
+      "local": "Argentina",
+      "visitante": "Cabo Verde",
+      "resultado": null
+    },
+    "R16": {
+      "fecha": "Vie 3 Jul",
+      "hora": "19:30",
+      "grupo": "R32",
+      "local": "Colombia",
+      "visitante": "Ghana",
+      "resultado": null
     }
   }
 }
