@@ -14,10 +14,10 @@
     {"jugador": "Cody Gakpo",           "pais": "Países Bajos", "bandera": "🇳🇱", "prob": 0.6}
   ],
   "campeon": [
-    {"pais": "Francia",        "bandera": "🇫🇷", "prob": 18.4},
-    {"pais": "España",         "bandera": "🇪🇸", "prob": 13.8},
+    {"pais": "Francia",        "bandera": "🇫🇷", "prob": 23.0},
+    {"pais": "Argentina",      "bandera": "🇦🇷", "prob": 21.0},
+    {"pais": "España",         "bandera": "🇪🇸", "prob": 10.6},
     {"pais": "Inglaterra",     "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 12.8},
-    {"pais": "Argentina",      "bandera": "🇦🇷", "prob": 11.6},
     {"pais": "Portugal",       "bandera": "🇵🇹", "prob": 8.5},
     {"pais": "Países Bajos",   "bandera": "🇳🇱", "prob": 5.8},
     {"pais": "Brasil",         "bandera": "🇧🇷", "prob": 5.6},

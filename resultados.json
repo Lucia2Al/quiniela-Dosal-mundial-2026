@@ -812,7 +812,7 @@
       "grupo": "R32",
       "local": "Brasil",
       "visitante": "Japón",
-      "resultado": null
+      "resultado": [2, 1]
     },
     "R3": {
       "fecha": "Lun 29 Jun",
@@ -820,7 +820,7 @@
       "grupo": "R32",
       "local": "Alemania",
       "visitante": "Paraguay",
-      "resultado": null
+      "resultado": [2, 0]
     },
     "R4": {
       "fecha": "Lun 29 Jun",
