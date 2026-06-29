@@ -1274,7 +1274,7 @@ async function loadRemoteResults(showFeedback) {
     var newCount = 0;
     Object.keys(data.partidos).forEach(function(pid) {
       var res = data.partidos[pid].resultado;
-      if (Array.isArray(res) && JSON.stringify(stored[pid]) !== JSON.stringify(res)) {
+      if ((Array.isArray(res) || res === null) && JSON.stringify(stored[pid]) !== JSON.stringify(res)) {
         stored[pid] = res; newCount++;
       }
     });
