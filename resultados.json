@@ -804,7 +804,10 @@
       "grupo": "R32",
       "local": "Sudáfrica",
       "visitante": "Canadá",
-      "resultado": [0, 1]
+      "resultado": [
+        0,
+        1
+      ]
     },
     "R2": {
       "fecha": "Lun 29 Jun",
@@ -812,7 +815,10 @@
       "grupo": "R32",
       "local": "Brasil",
       "visitante": "Japón",
-      "resultado": [2, 1]
+      "resultado": [
+        2,
+        1
+      ]
     },
     "R3": {
       "fecha": "Lun 29 Jun",
@@ -820,7 +826,7 @@
       "grupo": "R32",
       "local": "Alemania",
       "visitante": "Paraguay",
-      "resultado": [2, 0]
+      "resultado": null
     },
     "R4": {
       "fecha": "Lun 29 Jun",
