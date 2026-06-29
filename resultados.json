@@ -826,7 +826,10 @@
       "grupo": "R32",
       "local": "Alemania",
       "visitante": "Paraguay",
-      "resultado": null
+      "resultado": [
+        1,
+        1
+      ]
     },
     "R4": {
       "fecha": "Lun 29 Jun",
