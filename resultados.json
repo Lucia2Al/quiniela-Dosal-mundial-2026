@@ -826,10 +826,9 @@
       "grupo": "R32",
       "local": "Alemania",
       "visitante": "Paraguay",
-      "resultado": [
-        1,
-        1
-      ]
+      "resultado": [1, 1],
+      "penales": [3, 4],
+      "nota": "Paraguay avanza por penales 4-3"
     },
     "R4": {
       "fecha": "Lun 29 Jun",
@@ -837,10 +836,9 @@
       "grupo": "R32",
       "local": "Países Bajos",
       "visitante": "Marruecos",
-      "resultado": [
-        1,
-        1
-      ]
+      "resultado": [1, 1],
+      "penales": [2, 3],
+      "nota": "Marruecos avanza por penales 3-2"
     },
     "R5": {
       "fecha": "Mar 30 Jun",

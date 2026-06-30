@@ -1,28 +1,27 @@
 {
-  "_ultima_actualizacion": "2026-06-29",
+  "_ultima_actualizacion": "2026-06-30",
   "_fuente": "Polymarket",
   "goleador": [
-    {"jugador": "Lionel Messi",         "pais": "Argentina",    "bandera": "🇦🇷", "prob": 52.0},
-    {"jugador": "Kylian Mbappé",        "pais": "Francia",      "bandera": "🇫🇷", "prob": 23.0},
-    {"jugador": "Harry Kane",           "pais": "Inglaterra",   "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 8.0},
+    {"jugador": "Lionel Messi",         "pais": "Argentina",    "bandera": "🇦🇷", "prob": 53.0},
+    {"jugador": "Kylian Mbappé",        "pais": "Francia",      "bandera": "🇫🇷", "prob": 22.0},
+    {"jugador": "Harry Kane",           "pais": "Inglaterra",   "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 9.0},
     {"jugador": "Erling Haaland",       "pais": "Noruega",      "bandera": "🇳🇴", "prob": 5.0},
-    {"jugador": "Vinicius Junior",      "pais": "Brasil",       "bandera": "🇧🇷", "prob": 4.0},
+    {"jugador": "Vinicius Junior",      "pais": "Brasil",       "bandera": "🇧🇷", "prob": 5.0},
     {"jugador": "Mikel Oyarzabal",      "pais": "España",       "bandera": "🇪🇸", "prob": 2.0},
     {"jugador": "Cristiano Ronaldo",    "pais": "Portugal",     "bandera": "🇵🇹", "prob": 2.0},
     {"jugador": "Lamine Yamal",         "pais": "España",       "bandera": "🇪🇸", "prob": 1.0},
-    {"jugador": "Denis Undav",          "pais": "Alemania",     "bandera": "🇩🇪", "prob": 1.0},
-    {"jugador": "Cody Gakpo",           "pais": "Países Bajos", "bandera": "🇳🇱", "prob": 0.6}
+    {"jugador": "Jonathan David",       "pais": "Canadá",       "bandera": "🇨🇦", "prob": 1.0}
   ],
   "campeon": [
-    {"pais": "Francia",        "bandera": "🇫🇷", "prob": 23.0},
+    {"pais": "Francia",        "bandera": "🇫🇷", "prob": 18.4},
     {"pais": "Argentina",      "bandera": "🇦🇷", "prob": 21.0},
-    {"pais": "España",         "bandera": "🇪🇸", "prob": 10.6},
     {"pais": "Inglaterra",     "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 12.8},
+    {"pais": "España",         "bandera": "🇪🇸", "prob": 13.8},
     {"pais": "Portugal",       "bandera": "🇵🇹", "prob": 8.5},
-    {"pais": "Países Bajos",   "bandera": "🇳🇱", "prob": 5.8},
-    {"pais": "Brasil",         "bandera": "🇧🇷", "prob": 5.6},
-    {"pais": "Alemania",       "bandera": "🇩🇪", "prob": 4.7},
-    {"pais": "Noruega",        "bandera": "🇳🇴", "prob": 3.2},
-    {"pais": "Estados Unidos", "bandera": "🇺🇸", "prob": 3.0}
+    {"pais": "Brasil",         "bandera": "🇧🇷", "prob": 7.0},
+    {"pais": "Noruega",        "bandera": "🇳🇴", "prob": 4.5},
+    {"pais": "Estados Unidos", "bandera": "🇺🇸", "prob": 3.5},
+    {"pais": "Marruecos",      "bandera": "🇲🇦", "prob": 2.8},
+    {"pais": "Canadá",         "bandera": "🇨🇦", "prob": 2.5}
   ]
 }
