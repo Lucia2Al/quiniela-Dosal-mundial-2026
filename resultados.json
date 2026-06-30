@@ -1,6 +1,6 @@
 {
   "_instrucciones": "Resultados reales del Mundial 2026. Formato: [local, visitante] o null si pendiente. Orden = número de partido en el Excel (no necesariamente cronológico — ver _fechas_reales).",
-  "_ultima_actualizacion": "2026-06-30",
+  "_ultima_actualizacion": "2026-06-29",
   "_errores_fecha_excel": {
     "P5": "Excel marca Vie 12 Jun → real: Sáb 13 Jun 22:00 CDMX",
     "P17": "Excel marca Lun 15 Jun → real: Mar 16 Jun 22:00 CDMX"
@@ -826,8 +826,14 @@
       "grupo": "R32",
       "local": "Alemania",
       "visitante": "Paraguay",
-      "resultado": [1, 1],
-      "penales": [3, 4],
+      "resultado": [
+        1,
+        1
+      ],
+      "penales": [
+        3,
+        4
+      ],
       "nota": "Paraguay avanza por penales 4-3"
     },
     "R4": {
@@ -836,8 +842,14 @@
       "grupo": "R32",
       "local": "Países Bajos",
       "visitante": "Marruecos",
-      "resultado": [1, 1],
-      "penales": [2, 3],
+      "resultado": [
+        1,
+        1
+      ],
+      "penales": [
+        2,
+        3
+      ],
       "nota": "Marruecos avanza por penales 3-2"
     },
     "R5": {
@@ -846,10 +858,7 @@
       "grupo": "R32",
       "local": "Costa de Marfil",
       "visitante": "Noruega",
-      "resultado": [
-        1,
-        2
-      ]
+      "resultado": null
     },
     "R6": {
       "fecha": "Mar 30 Jun",
