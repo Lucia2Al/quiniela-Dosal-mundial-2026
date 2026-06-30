@@ -869,7 +869,10 @@
       "grupo": "R32",
       "local": "Francia",
       "visitante": "Suecia",
-      "resultado": null
+      "resultado": [
+        3,
+        0
+      ]
     },
     "R7": {
       "fecha": "Mar 30 Jun",
