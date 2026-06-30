@@ -848,7 +848,10 @@
       "grupo": "R32",
       "local": "Costa de Marfil",
       "visitante": "Noruega",
-      "resultado": null
+      "resultado": [
+        1,
+        2
+      ]
     },
     "R6": {
       "fecha": "Mar 30 Jun",
