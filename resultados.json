@@ -891,7 +891,10 @@
       "grupo": "R32",
       "local": "Inglaterra",
       "visitante": "RD Congo",
-      "resultado": null
+      "resultado": [
+        2,
+        1
+      ]
     },
     "R9": {
       "fecha": "Mié 1 Jul",
