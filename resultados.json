@@ -1,6 +1,6 @@
 {
   "_instrucciones": "Resultados reales del Mundial 2026. Formato: [local, visitante] o null si pendiente. Orden = número de partido en el Excel (no necesariamente cronológico — ver _fechas_reales).",
-  "_ultima_actualizacion": "2026-06-30",
+  "_ultima_actualizacion": "2026-07-01",
   "_errores_fecha_excel": {
     "P5": "Excel marca Vie 12 Jun → real: Sáb 13 Jun 22:00 CDMX",
     "P17": "Excel marca Lun 15 Jun → real: Mar 16 Jun 22:00 CDMX"
@@ -880,7 +880,10 @@
       "grupo": "R32",
       "local": "México",
       "visitante": "Ecuador",
-      "resultado": null
+      "resultado": [
+        2,
+        0
+      ]
     },
     "R8": {
       "fecha": "Mié 1 Jul",
