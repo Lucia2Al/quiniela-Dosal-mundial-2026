@@ -902,7 +902,10 @@
       "grupo": "R32",
       "local": "Bélgica",
       "visitante": "Senegal",
-      "resultado": null
+      "resultado": [
+        2,
+        2
+      ]
     },
     "R10": {
       "fecha": "Mié 1 Jul",
