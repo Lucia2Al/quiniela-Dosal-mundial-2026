@@ -957,7 +957,10 @@
       "grupo": "R32",
       "local": "Australia",
       "visitante": "Egipto",
-      "resultado": null
+      "resultado": [
+        1,
+        1
+      ]
     },
     "R15": {
       "fecha": "Vie 3 Jul",
