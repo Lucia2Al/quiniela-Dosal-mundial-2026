@@ -946,7 +946,10 @@
       "grupo": "R32",
       "local": "Suiza",
       "visitante": "Argelia",
-      "resultado": null
+      "resultado": [
+        2,
+        0
+      ]
     },
     "R14": {
       "fecha": "Vie 3 Jul",
