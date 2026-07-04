@@ -1001,7 +1001,10 @@
       "grupo": "OCT",
       "local": "Paraguay",
       "visitante": "Francia",
-      "resultado": null
+      "resultado": [
+        0,
+        1
+      ]
     },
     "O3": {
       "fecha": "Dom 5 Jul",
