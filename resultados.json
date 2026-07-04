@@ -979,7 +979,10 @@
       "grupo": "R32",
       "local": "Colombia",
       "visitante": "Ghana",
-      "resultado": null
+      "resultado": [
+        1,
+        0
+      ]
     }
   }
 }
