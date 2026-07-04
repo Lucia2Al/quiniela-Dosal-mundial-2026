@@ -990,7 +990,10 @@
       "grupo": "OCT",
       "local": "Canadá",
       "visitante": "Marruecos",
-      "resultado": null
+      "resultado": [
+        0,
+        3
+      ]
     },
     "O2": {
       "fecha": "Sáb 4 Jul",
