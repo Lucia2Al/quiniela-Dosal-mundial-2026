@@ -983,6 +983,70 @@
         1,
         0
       ]
+    },
+    "O1": {
+      "fecha": "Sáb 4 Jul",
+      "hora": "11:00",
+      "grupo": "OCT",
+      "local": "Canadá",
+      "visitante": "Marruecos",
+      "resultado": null
+    },
+    "O2": {
+      "fecha": "Sáb 4 Jul",
+      "hora": "15:00",
+      "grupo": "OCT",
+      "local": "Paraguay",
+      "visitante": "Francia",
+      "resultado": null
+    },
+    "O3": {
+      "fecha": "Dom 5 Jul",
+      "hora": "14:00",
+      "grupo": "OCT",
+      "local": "Brasil",
+      "visitante": "Noruega",
+      "resultado": null
+    },
+    "O4": {
+      "fecha": "Dom 5 Jul",
+      "hora": "18:00",
+      "grupo": "OCT",
+      "local": "México",
+      "visitante": "Inglaterra",
+      "resultado": null
+    },
+    "O5": {
+      "fecha": "Lun 6 Jul",
+      "hora": "13:00",
+      "grupo": "OCT",
+      "local": "Portugal",
+      "visitante": "España",
+      "resultado": null
+    },
+    "O6": {
+      "fecha": "Lun 6 Jul",
+      "hora": "18:00",
+      "grupo": "OCT",
+      "local": "Estados Unidos",
+      "visitante": "Bélgica",
+      "resultado": null
+    },
+    "O7": {
+      "fecha": "Mar 7 Jul",
+      "hora": "10:00",
+      "grupo": "OCT",
+      "local": "Argentina",
+      "visitante": "Egipto",
+      "resultado": null
+    },
+    "O8": {
+      "fecha": "Mar 7 Jul",
+      "hora": "14:00",
+      "grupo": "OCT",
+      "local": "Suiza",
+      "visitante": "Colombia",
+      "resultado": null
     }
   }
 }
