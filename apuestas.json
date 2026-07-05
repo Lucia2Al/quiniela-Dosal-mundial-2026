@@ -1,27 +1,63 @@
 {
-  "_ultima_actualizacion": "2026-07-04",
+  "_ultima_actualizacion": "2026-07-05",
   "_fuente": "Polymarket",
   "goleador": [
-    {"jugador": "Lionel Messi",     "pais": "Argentina",  "bandera": "🇦🇷", "prob": 44.0},
-    {"jugador": "Kylian Mbappé",   "pais": "Francia",    "bandera": "🇫🇷", "prob": 17.0},
-    {"jugador": "Harry Kane",       "pais": "Inglaterra", "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 9.0},
-    {"jugador": "Erling Haaland",   "pais": "Noruega",    "bandera": "🇳🇴", "prob": 8.0},
-    {"jugador": "Vinicius Junior",  "pais": "Brasil",     "bandera": "🇧🇷", "prob": 5.0},
-    {"jugador": "Mikel Oyarzabal",  "pais": "España",     "bandera": "🇪🇸", "prob": 4.0},
-    {"jugador": "Cristiano Ronaldo","pais": "Portugal",   "bandera": "🇵🇹", "prob": 3.0},
-    {"jugador": "Jonathan David",   "pais": "Canadá",     "bandera": "🇨🇦", "prob": 2.0},
-    {"jugador": "Lamine Yamal",     "pais": "España",     "bandera": "🇪🇸", "prob": 1.0}
+    {
+      "jugador": "Kylian Mbappé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "prob": 51.0
+    },
+    {
+      "jugador": "Lionel Messi",
+      "pais": "Argentina",
+      "bandera": "🇦🇷",
+      "prob": 37.0
+    },
+    {
+      "jugador": "Harry Kane",
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "prob": 9.0
+    },
+    {
+      "jugador": "Erling Haaland",
+      "pais": "Noruega",
+      "bandera": "🇳🇴",
+      "prob": 8.0
+    },
+    {
+      "jugador": "Ousmane Dembélé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "prob": 5.0
+    }
   ],
   "campeon": [
-    {"pais": "Francia",        "bandera": "🇫🇷", "prob": 35.0},
-    {"pais": "Argentina",      "bandera": "🇦🇷", "prob": 17.0},
-    {"pais": "España",         "bandera": "🇪🇸", "prob": 13.8},
-    {"pais": "Inglaterra",     "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "prob": 10.0},
-    {"pais": "Brasil",         "bandera": "🇧🇷", "prob": 7.0},
-    {"pais": "Portugal",       "bandera": "🇵🇹", "prob": 6.0},
-    {"pais": "Noruega",        "bandera": "🇳🇴", "prob": 4.5},
-    {"pais": "Estados Unidos", "bandera": "🇺🇸", "prob": 3.5},
-    {"pais": "Marruecos",      "bandera": "🇲🇦", "prob": 2.8},
-    {"pais": "Canadá",         "bandera": "🇨🇦", "prob": 1.0}
+    {
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "prob": 35.0
+    },
+    {
+      "pais": "Argentina",
+      "bandera": "🇦🇷",
+      "prob": 17.0
+    },
+    {
+      "pais": "España",
+      "bandera": "🇪🇸",
+      "prob": 13.8
+    },
+    {
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "prob": 10.0
+    },
+    {
+      "pais": "Brasil",
+      "bandera": "🇧🇷",
+      "prob": 7.0
+    }
   ]
 }
