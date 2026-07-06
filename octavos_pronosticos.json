@@ -1,5 +1,5 @@
 {
-  "_ultima_actualizacion": "2026-07-05",
+  "_ultima_actualizacion": "2026-07-06",
   "_instrucciones": "Pronósticos Octavos de Final. Formato: [local, visitante] o null si pendiente.",
   "pronosticos": {
     "O1": {
@@ -181,30 +181,90 @@
       ]
     },
     "O5": {
-      "LDE": null,
-      "PDE": null,
-      "JDE": null,
-      "EDO": null,
-      "APC": null,
-      "EER": null,
+      "LDE": [
+        1,
+        2
+      ],
+      "PDE": [
+        1,
+        2
+      ],
+      "JDE": [
+        0,
+        1
+      ],
+      "EDO": [
+        0,
+        1
+      ],
+      "APC": [
+        2,
+        3
+      ],
+      "EER": [
+        1,
+        2
+      ],
       "DDT": null,
-      "EDE": null,
-      "EIP": null,
-      "MyE": null,
-      "MFC": null
+      "EDE": [
+        2,
+        2
+      ],
+      "EIP": [
+        1,
+        2
+      ],
+      "MyE": [
+        1,
+        1
+      ],
+      "MFC": [
+        1,
+        1
+      ]
     },
     "O6": {
-      "LDE": null,
-      "PDE": null,
-      "JDE": null,
-      "EDO": null,
-      "APC": null,
-      "EER": null,
+      "LDE": [
+        1,
+        1
+      ],
+      "PDE": [
+        1,
+        1
+      ],
+      "JDE": [
+        1,
+        2
+      ],
+      "EDO": [
+        1,
+        2
+      ],
+      "APC": [
+        0,
+        1
+      ],
+      "EER": [
+        1,
+        2
+      ],
       "DDT": null,
-      "EDE": null,
-      "EIP": null,
-      "MyE": null,
-      "MFC": null
+      "EDE": [
+        1,
+        2
+      ],
+      "EIP": [
+        1,
+        1
+      ],
+      "MyE": [
+        2,
+        1
+      ],
+      "MFC": [
+        1,
+        2
+      ]
     },
     "O7": {
       "LDE": null,

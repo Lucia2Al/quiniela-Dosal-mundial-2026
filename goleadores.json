@@ -1,6 +1,12 @@
 {
-  "_ultima_actualizacion": "2026-07-05",
+  "_ultima_actualizacion": "2026-07-06",
   "goleadores": [
+    {
+      "jugador": "Kylian Mbappé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "goles": 7
+    },
     {
       "jugador": "Lionel Messi",
       "pais": "Argentina",
@@ -8,22 +14,22 @@
       "goles": 7
     },
     {
-      "jugador": "Kylian Mbappé",
-      "pais": "Francia",
-      "bandera": "🇫🇷",
-      "goles": 6
-    },
-    {
       "jugador": "Erling Haaland",
       "pais": "Noruega",
       "bandera": "🇳🇴",
-      "goles": 5
+      "goles": 7
     },
     {
       "jugador": "Harry Kane",
       "pais": "Inglaterra",
       "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "goles": 5
+      "goles": 6
+    },
+    {
+      "jugador": "Jude Bellingham",
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "goles": 4
     },
     {
       "jugador": "Ousmane Dembélé",
@@ -38,7 +44,13 @@
       "goles": 4
     },
     {
-      "jugador": "Ismaila Sarr",
+      "jugador": "Julián Quiñones",
+      "pais": "México",
+      "bandera": "🇲🇽",
+      "goles": 4
+    },
+    {
+      "jugador": "Ismaïla Sarr",
       "pais": "Senegal",
       "bandera": "🇸🇳",
       "goles": 4
@@ -95,12 +107,6 @@
       "jugador": "Johan Manzambi",
       "pais": "Suiza",
       "bandera": "🇨🇭",
-      "goles": 3
-    },
-    {
-      "jugador": "Julián Quiñones",
-      "pais": "México",
-      "bandera": "🇲🇽",
       "goles": 3
     },
     {
