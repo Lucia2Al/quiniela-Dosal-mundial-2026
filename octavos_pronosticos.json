@@ -205,7 +205,10 @@
         1,
         2
       ],
-      "DDT": null,
+      "DDT": [
+        2,
+        3
+      ],
       "EDE": [
         2,
         2
@@ -233,8 +236,8 @@
         1
       ],
       "JDE": [
-        1,
-        2
+        2,
+        1
       ],
       "EDO": [
         1,
@@ -248,7 +251,10 @@
         1,
         2
       ],
-      "DDT": null,
+      "DDT": [
+        2,
+        1
+      ],
       "EDE": [
         1,
         2
@@ -267,30 +273,96 @@
       ]
     },
     "O7": {
-      "LDE": null,
-      "PDE": null,
-      "JDE": null,
-      "EDO": null,
-      "APC": null,
-      "EER": null,
-      "DDT": null,
-      "EDE": null,
-      "EIP": null,
-      "MyE": null,
-      "MFC": null
+      "LDE": [
+        2,
+        1
+      ],
+      "PDE": [
+        2,
+        0
+      ],
+      "JDE": [
+        2,
+        0
+      ],
+      "EDO": [
+        2,
+        1
+      ],
+      "APC": [
+        1,
+        2
+      ],
+      "EER": [
+        3,
+        0
+      ],
+      "DDT": [
+        3,
+        0
+      ],
+      "EDE": [
+        3,
+        1
+      ],
+      "EIP": [
+        2,
+        0
+      ],
+      "MyE": [
+        2,
+        1
+      ],
+      "MFC": [
+        2,
+        0
+      ]
     },
     "O8": {
-      "LDE": null,
-      "PDE": null,
-      "JDE": null,
-      "EDO": null,
-      "APC": null,
-      "EER": null,
-      "DDT": null,
-      "EDE": null,
-      "EIP": null,
-      "MyE": null,
-      "MFC": null
+      "LDE": [
+        1,
+        1
+      ],
+      "PDE": [
+        0,
+        1
+      ],
+      "JDE": [
+        1,
+        2
+      ],
+      "EDO": [
+        0,
+        2
+      ],
+      "APC": [
+        1,
+        2
+      ],
+      "EER": [
+        0,
+        1
+      ],
+      "DDT": [
+        1,
+        2
+      ],
+      "EDE": [
+        1,
+        1
+      ],
+      "EIP": [
+        0,
+        1
+      ],
+      "MyE": [
+        1,
+        2
+      ],
+      "MFC": [
+        1,
+        1
+      ]
     }
   }
 }
