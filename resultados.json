@@ -1034,7 +1034,10 @@
       "grupo": "OCT",
       "local": "Portugal",
       "visitante": "España",
-      "resultado": null
+      "resultado": [
+        0,
+        1
+      ]
     },
     "O6": {
       "fecha": "Lun 6 Jul",
