@@ -1056,7 +1056,10 @@
       "grupo": "OCT",
       "local": "Argentina",
       "visitante": "Egipto",
-      "resultado": null
+      "resultado": [
+        3,
+        2
+      ]
     },
     "O8": {
       "fecha": "Mar 7 Jul",
