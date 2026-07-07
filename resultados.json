@@ -1067,7 +1067,10 @@
       "grupo": "OCT",
       "local": "Suiza",
       "visitante": "Colombia",
-      "resultado": null
+      "resultado": [
+        0,
+        0
+      ]
     }
   }
 }
