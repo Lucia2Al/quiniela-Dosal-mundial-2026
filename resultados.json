@@ -1071,6 +1071,14 @@
         0,
         0
       ]
+    },
+    "Q1": {
+      "fecha": "Jue 9 Jul",
+      "hora": "14:00",
+      "grupo": "CUA",
+      "local": "Francia",
+      "visitante": "Marruecos",
+      "resultado": null
     }
   }
 }
