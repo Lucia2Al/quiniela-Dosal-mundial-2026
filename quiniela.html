@@ -118,6 +118,16 @@
   .rank-3 { background: var(--bronze); color: white; }
   .pts-big { font-weight: 800; font-size: 1rem; color: var(--green); }
   .bonus-note { background: #fff8e6; border: 1px solid var(--gold); border-radius: 8px; padding: 10px 14px; font-size: 0.8rem; color: #92600a; margin-bottom: 16px; }
+  .proy-card { background: var(--card); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 10px; box-shadow: var(--shadow); }
+  .proy-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .proy-name { font-weight: 800; font-size: 0.95rem; }
+  .proy-diff { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
+  .proy-diff.lider { color: var(--gold); }
+  .proy-bar-wrap { position: relative; height: 20px; background: #eef0f3; border-radius: 6px; overflow: hidden; }
+  .proy-bar-techo { position: absolute; left: 0; top: 0; height: 100%; background: rgba(212,160,23,0.28); }
+  .proy-bar-actual { position: absolute; left: 0; top: 0; height: 100%; background: var(--green); border-radius: 6px 0 0 6px; }
+  .proy-nums { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+  .proy-warn { font-size: 0.72rem; color: var(--wrong); margin-top: 6px; }
 
   /* Day chips */
   .day-chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 16px; scrollbar-width: none; }
@@ -274,6 +284,7 @@
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('tabla')">&#x1F3C6; Tabla</button>
+  <button class="tab-btn" onclick="showTab('proyeccion')">&#x1F4CA; Proyecci&oacute;n</button>
   <button class="tab-btn" onclick="showTab('partidos')">&#x26BD; Partidos</button>
   <button class="tab-btn" onclick="showTab('jugadores')">&#x1F464; Jugadores</button>
   <button class="tab-btn" onclick="showTab('campeon')">&#x1F31F; Campe&oacute;n</button>
@@ -284,6 +295,7 @@
 </div>
 
 <div id="tab-tabla" class="tab-content active"></div>
+<div id="tab-proyeccion" class="tab-content"></div>
 <div id="tab-partidos" class="tab-content"></div>
 <div id="tab-jugadores" class="tab-content"></div>
 <div id="tab-campeon" class="tab-content"></div>
@@ -493,7 +505,7 @@ function calcStandings() {
 var activeTab = 'tabla';
 
 function showTab(tab) {
-  var tabs = ['tabla','partidos','jugadores','campeon','goleador','grupos','reglas','admin'];
+  var tabs = ['tabla','proyeccion','partidos','jugadores','campeon','goleador','grupos','reglas','admin'];
   var btns = document.querySelectorAll('.tab-btn');
   btns.forEach(function(b, i) { b.classList.toggle('active', tabs[i] === tab); });
   document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
@@ -504,6 +516,7 @@ function showTab(tab) {
 
 function renderTab(tab) {
   if (tab==='tabla') renderTabla();
+  else if (tab==='proyeccion') { loadRemoteProyeccion().then(function(){ renderProyeccion(); }); }
   else if (tab==='partidos') renderPartidos();
   else if (tab==='jugadores') renderJugadores();
   else if (tab==='campeon') { loadRemoteApuestas().then(function(){ renderCampeon(); }); }
@@ -1231,8 +1244,10 @@ var GITHUB_REPO = 'Lucia2Al/quiniela-Dosal-mundial-2026';
 var RESULTS_PATH = 'resultados.json';
 var SCORERS_PATH = 'goleadores.json';
 var APUESTAS_PATH = 'apuestas.json';
+var PROYECCION_PATH = 'proyeccion.json';
 var remoteScorers = null;
 var remoteApuestas = null;
+var remoteProyeccion = null;
 
 async function loadRemoteScorers() {
   try {
@@ -1258,6 +1273,52 @@ async function loadRemoteApuestas() {
     var fd = await r.json();
     remoteApuestas = JSON.parse(b64DecodeUTF8(fd.content));
   } catch(e) {}
+}
+
+async function loadRemoteProyeccion() {
+  try {
+    var apiUrl = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + PROYECCION_PATH;
+    var headers = { 'Accept': 'application/vnd.github.v3+json' };
+    var token = getSyncToken();
+    if (token) headers['Authorization'] = 'token ' + token;
+    var r = await fetch(apiUrl, { headers: headers });
+    if (!r.ok) return;
+    var fd = await r.json();
+    remoteProyeccion = JSON.parse(b64DecodeUTF8(fd.content));
+  } catch(e) {}
+}
+
+function renderProyeccion() {
+  var el = document.getElementById('tab-proyeccion');
+  var P = remoteProyeccion;
+  if (!P || !P.proyeccion) {
+    el.innerHTML = '<div class="bonus-note">No se pudo cargar la proyecci\u00f3n. Verifica tu conexi\u00f3n.</div>';
+    return;
+  }
+  var maxTecho = Math.max.apply(null, P.proyeccion.map(function(r){ return r.techo; }));
+  var html = '';
+  html += '<div class="bonus-note">&#x1F4CA; Proyecci\u00f3n al ' + (P._ultima_actualizacion || '') +
+    '. El <strong>techo</strong> = ' + P._partidos_restantes + ' partidos restantes (&times;3) + campe\u00f3n (+' +
+    P._bono_campeon + ' si sigue vivo) + goleador (+' + P._bono_goleador + ').</div>';
+  P.proyeccion.forEach(function(r, i) {
+    var esLider = r.dif_vs_1 === 0;
+    var pctActual = Math.round(r.puntos / maxTecho * 100);
+    var pctTecho = Math.round(r.techo / maxTecho * 100);
+    var difTxt = esLider ? '&#x1F451; L\u00cdDER' : ('&minus;' + r.dif_vs_1 + ' vs 1\u00ba');
+    html += '<div class="proy-card">' +
+      '<div class="proy-top"><span class="proy-name">' + (i + 1) + '. ' + r.participante + '</span>' +
+      '<span class="proy-diff' + (esLider ? ' lider' : '') + '">' + difTxt + '</span></div>' +
+      '<div class="proy-bar-wrap">' +
+        '<div class="proy-bar-techo" style="width:' + pctTecho + '%"></div>' +
+        '<div class="proy-bar-actual" style="width:' + pctActual + '%"></div>' +
+      '</div>' +
+      '<div class="proy-nums"><span>' + r.puntos + ' pts hoy</span>' +
+      '<span>techo <strong>' + r.techo + '</strong> &nbsp;(+' + r.max_adicional + ')</span></div>' +
+      (r.campeon_vivo ? '' : '<div class="proy-warn">&#x26A0;&#xFE0F; Su campe\u00f3n (' + r.campeon +
+        ') ya fue eliminado \u2014 sin bono de +' + P._bono_campeon + '</div>') +
+      '</div>';
+  });
+  el.innerHTML = html;
 }
 
 function getSyncToken() { return localStorage.getItem('quiniela_sync_token') || ''; }
