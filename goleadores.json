@@ -1,16 +1,16 @@
 {
-  "_ultima_actualizacion": "2026-07-06",
+  "_ultima_actualizacion": "2026-07-09",
   "goleadores": [
-    {
-      "jugador": "Kylian Mbappé",
-      "pais": "Francia",
-      "bandera": "🇫🇷",
-      "goles": 7
-    },
     {
       "jugador": "Lionel Messi",
       "pais": "Argentina",
       "bandera": "🇦🇷",
+      "goles": 8
+    },
+    {
+      "jugador": "Kylian Mbappé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
       "goles": 7
     },
     {
