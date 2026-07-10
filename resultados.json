@@ -1082,6 +1082,30 @@
         2,
         0
       ]
+    },
+    "Q2": {
+      "fecha": "Vie 10 Jul",
+      "hora": "13:00",
+      "grupo": "CUA",
+      "local": "España",
+      "visitante": "Bélgica",
+      "resultado": null
+    },
+    "Q3": {
+      "fecha": "Sáb 11 Jul",
+      "hora": "15:00",
+      "grupo": "CUA",
+      "local": "Noruega",
+      "visitante": "Inglaterra",
+      "resultado": null
+    },
+    "Q4": {
+      "fecha": "Sáb 11 Jul",
+      "hora": "19:00",
+      "grupo": "CUA",
+      "local": "Argentina",
+      "visitante": "Suiza",
+      "resultado": null
     }
   }
 }

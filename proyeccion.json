@@ -1,110 +1,110 @@
 {
   "_ultima_actualizacion": "2026-07-09",
-  "_nota": "96 partidos confirmados (grupos + R32 + octavos). Bonos sin asignar. Max adicional = 8 partidos restantes x3 (24) + campeon (+10 si su seleccion sigue viva) + goleador (+5).",
-  "_partidos_restantes": 8,
+  "_nota": "97 partidos confirmados (grupos + R32 + octavos + Q1). Bonos sin asignar. Max adicional = 7 partidos restantes x3 (21) + campeon (+10 si su seleccion sigue viva) + goleador (+5).",
+  "_partidos_restantes": 7,
   "_bono_campeon": 10,
   "_bono_goleador": 5,
   "lider": "LDE",
-  "puntos_lider": 85,
+  "puntos_lider": 86,
   "proyeccion": [
     {
       "participante": "LDE",
-      "puntos": 85,
+      "puntos": 86,
       "dif_vs_1": 0,
       "campeon": "Francia",
       "campeon_vivo": true,
-      "max_adicional": 39,
-      "techo": 124
+      "max_adicional": 36,
+      "techo": 122
     },
     {
       "participante": "PDE",
-      "puntos": 83,
-      "dif_vs_1": 2,
+      "puntos": 86,
+      "dif_vs_1": 0,
       "campeon": "España",
       "campeon_vivo": true,
-      "max_adicional": 39,
+      "max_adicional": 36,
       "techo": 122
     },
     {
       "participante": "JDE",
-      "puntos": 83,
+      "puntos": 84,
       "dif_vs_1": 2,
       "campeon": "Francia",
       "campeon_vivo": true,
-      "max_adicional": 39,
-      "techo": 122
+      "max_adicional": 36,
+      "techo": 120
     },
     {
       "participante": "EDE",
-      "puntos": 80,
+      "puntos": 81,
       "dif_vs_1": 5,
       "campeon": "Argentina",
       "campeon_vivo": true,
-      "max_adicional": 39,
-      "techo": 119
-    },
-    {
-      "participante": "MyE",
-      "puntos": 77,
-      "dif_vs_1": 8,
-      "campeon": "Brasil",
-      "campeon_vivo": false,
-      "max_adicional": 29,
-      "techo": 106
-    },
-    {
-      "participante": "EDO",
-      "puntos": 76,
-      "dif_vs_1": 9,
-      "campeon": "España",
-      "campeon_vivo": true,
-      "max_adicional": 39,
-      "techo": 115
+      "max_adicional": 36,
+      "techo": 117
     },
     {
       "participante": "DDT",
-      "puntos": 75,
-      "dif_vs_1": 10,
+      "puntos": 78,
+      "dif_vs_1": 8,
       "campeon": "Francia",
       "campeon_vivo": true,
-      "max_adicional": 39,
+      "max_adicional": 36,
       "techo": 114
     },
     {
+      "participante": "MyE",
+      "puntos": 78,
+      "dif_vs_1": 8,
+      "campeon": "Brasil",
+      "campeon_vivo": false,
+      "max_adicional": 26,
+      "techo": 104
+    },
+    {
+      "participante": "EDO",
+      "puntos": 77,
+      "dif_vs_1": 9,
+      "campeon": "España",
+      "campeon_vivo": true,
+      "max_adicional": 36,
+      "techo": 113
+    },
+    {
       "participante": "EIP",
-      "puntos": 75,
+      "puntos": 76,
       "dif_vs_1": 10,
       "campeon": "Portugal",
       "campeon_vivo": false,
-      "max_adicional": 29,
-      "techo": 104
+      "max_adicional": 26,
+      "techo": 102
     },
     {
       "participante": "MFC",
-      "puntos": 65,
+      "puntos": 66,
       "dif_vs_1": 20,
       "campeon": "España",
       "campeon_vivo": true,
-      "max_adicional": 39,
-      "techo": 104
+      "max_adicional": 36,
+      "techo": 102
     },
     {
       "participante": "EER",
-      "puntos": 64,
+      "puntos": 65,
       "dif_vs_1": 21,
       "campeon": "Francia",
       "campeon_vivo": true,
-      "max_adicional": 39,
-      "techo": 103
+      "max_adicional": 36,
+      "techo": 101
     },
     {
       "participante": "APC",
-      "puntos": 62,
+      "puntos": 63,
       "dif_vs_1": 23,
       "campeon": "Francia",
       "campeon_vivo": true,
-      "max_adicional": 39,
-      "techo": 101
+      "max_adicional": 36,
+      "techo": 99
     }
   ]
 }

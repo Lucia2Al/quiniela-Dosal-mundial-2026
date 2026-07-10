@@ -11,7 +11,7 @@
       "jugador": "Kylian Mbappé",
       "pais": "Francia",
       "bandera": "🇫🇷",
-      "goles": 7
+      "goles": 8
     },
     {
       "jugador": "Erling Haaland",
@@ -26,15 +26,15 @@
       "goles": 6
     },
     {
-      "jugador": "Jude Bellingham",
-      "pais": "Inglaterra",
-      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "goles": 4
-    },
-    {
       "jugador": "Ousmane Dembélé",
       "pais": "Francia",
       "bandera": "🇫🇷",
+      "goles": 5
+    },
+    {
+      "jugador": "Jude Bellingham",
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "goles": 4
     },
     {
