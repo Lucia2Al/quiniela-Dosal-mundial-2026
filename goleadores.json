@@ -1,5 +1,5 @@
 {
-  "_ultima_actualizacion": "2026-07-09",
+  "_ultima_actualizacion": "2026-07-18",
   "goleadores": [
     {
       "jugador": "Lionel Messi",
@@ -32,15 +32,15 @@
       "goles": 5
     },
     {
-      "jugador": "Jude Bellingham",
-      "pais": "Inglaterra",
-      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "goles": 4
-    },
-    {
       "jugador": "Mikel Oyarzabal",
       "pais": "España",
       "bandera": "🇪🇸",
+      "goles": 5
+    },
+    {
+      "jugador": "Jude Bellingham",
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "goles": 4
     },
     {

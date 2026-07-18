@@ -1,63 +1,42 @@
 {
-  "_ultima_actualizacion": "2026-07-09",
+  "_ultima_actualizacion": "2026-07-18",
   "_fuente": "Polymarket",
   "goleador": [
-    {
-      "jugador": "Kylian Mbappé",
-      "pais": "Francia",
-      "bandera": "🇫🇷",
-      "prob": 25.5
-    },
     {
       "jugador": "Lionel Messi",
       "pais": "Argentina",
       "bandera": "🇦🇷",
-      "prob": 21.1
+      "prob": 58.0
+    },
+    {
+      "jugador": "Kylian Mbappé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "prob": 39.0
     },
     {
       "jugador": "Harry Kane",
       "pais": "Inglaterra",
       "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "prob": 19.5
+      "prob": 2.0
     },
     {
-      "jugador": "Erling Haaland",
-      "pais": "Noruega",
-      "bandera": "🇳🇴",
-      "prob": 10.0
-    },
-    {
-      "jugador": "Ousmane Dembélé",
-      "pais": "Francia",
-      "bandera": "🇫🇷",
-      "prob": 6.0
+      "jugador": "Jude Bellingham",
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "prob": 1.0
     }
   ],
   "campeon": [
     {
-      "pais": "Francia",
-      "bandera": "🇫🇷",
-      "prob": 40.0
+      "pais": "España",
+      "bandera": "🇪🇸",
+      "prob": 59.0
     },
     {
       "pais": "Argentina",
       "bandera": "🇦🇷",
-      "prob": 18.0
-    },
-    {
-      "pais": "España",
-      "bandera": "🇪🇸",
-      "prob": 17.0
-    },
-    {
-      "pais": "Inglaterra",
-      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "prob": 16.0
-    },
-    {
-      "pais": "Noruega",
-      "bandera": "🇳🇴",
-      "prob": 6.0
+      "prob": 41.0
     }
   ]
 }
