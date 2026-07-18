@@ -1137,6 +1137,22 @@
         1,
         2
       ]
+    },
+    "3P": {
+      "fecha": "Sáb 18 Jul",
+      "hora": "15:00",
+      "grupo": "TER",
+      "local": "Francia",
+      "visitante": "Inglaterra",
+      "resultado": null
+    },
+    "FIN": {
+      "fecha": "Dom 19 Jul",
+      "hora": "13:00",
+      "grupo": "FIN",
+      "local": "España",
+      "visitante": "Argentina",
+      "resultado": null
     }
   }
 }
