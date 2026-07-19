@@ -1155,7 +1155,10 @@
       "grupo": "FIN",
       "local": "España",
       "visitante": "Argentina",
-      "resultado": null
+      "resultado": [
+        1,
+        0
+      ]
     }
   }
 }
