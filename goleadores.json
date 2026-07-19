@@ -1,16 +1,16 @@
 {
-  "_ultima_actualizacion": "2026-07-18",
+  "_ultima_actualizacion": "2026-07-19",
   "goleadores": [
-    {
-      "jugador": "Lionel Messi",
-      "pais": "Argentina",
-      "bandera": "🇦🇷",
-      "goles": 8
-    },
     {
       "jugador": "Kylian Mbappé",
       "pais": "Francia",
       "bandera": "🇫🇷",
+      "goles": 10
+    },
+    {
+      "jugador": "Lionel Messi",
+      "pais": "Argentina",
+      "bandera": "🇦🇷",
       "goles": 8
     },
     {
@@ -20,16 +20,22 @@
       "goles": 7
     },
     {
-      "jugador": "Harry Kane",
+      "jugador": "Jude Bellingham",
       "pais": "Inglaterra",
       "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "goles": 6
+      "goles": 7
     },
     {
       "jugador": "Ousmane Dembélé",
       "pais": "Francia",
       "bandera": "🇫🇷",
-      "goles": 5
+      "goles": 6
+    },
+    {
+      "jugador": "Harry Kane",
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "goles": 6
     },
     {
       "jugador": "Mikel Oyarzabal",
@@ -38,7 +44,7 @@
       "goles": 5
     },
     {
-      "jugador": "Jude Bellingham",
+      "jugador": "Bukayo Saka",
       "pais": "Inglaterra",
       "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "goles": 4
@@ -68,12 +74,6 @@
       "goles": 3
     },
     {
-      "jugador": "Brian Brobbey",
-      "pais": "Países Bajos",
-      "bandera": "🇳🇱",
-      "goles": 3
-    },
-    {
       "jugador": "Cristiano Ronaldo",
       "pais": "Portugal",
       "bandera": "🇵🇹",
@@ -83,12 +83,6 @@
       "jugador": "Matheus Cunha",
       "pais": "Brasil",
       "bandera": "🇧🇷",
-      "goles": 3
-    },
-    {
-      "jugador": "Jonathan David",
-      "pais": "Canadá",
-      "bandera": "🇨🇦",
       "goles": 3
     },
     {
@@ -104,27 +98,9 @@
       "goles": 3
     },
     {
-      "jugador": "Johan Manzambi",
-      "pais": "Suiza",
-      "bandera": "🇨🇭",
-      "goles": 3
-    },
-    {
       "jugador": "Ismael Saibari",
       "pais": "Marruecos",
       "bandera": "🇲🇦",
-      "goles": 3
-    },
-    {
-      "jugador": "Denis Undav",
-      "pais": "Alemania",
-      "bandera": "🇩🇪",
-      "goles": 3
-    },
-    {
-      "jugador": "Yoane Wissa",
-      "pais": "Rep. Dem. del Congo",
-      "bandera": "🇨🇩",
       "goles": 3
     }
   ]

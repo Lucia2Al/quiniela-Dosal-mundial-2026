@@ -1,24 +1,18 @@
 {
-  "_ultima_actualizacion": "2026-07-18",
+  "_ultima_actualizacion": "2026-07-19",
   "_fuente": "Polymarket",
   "goleador": [
-    {
-      "jugador": "Lionel Messi",
-      "pais": "Argentina",
-      "bandera": "🇦🇷",
-      "prob": 58.0
-    },
     {
       "jugador": "Kylian Mbappé",
       "pais": "Francia",
       "bandera": "🇫🇷",
-      "prob": 39.0
+      "prob": 88.0
     },
     {
-      "jugador": "Harry Kane",
-      "pais": "Inglaterra",
-      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "prob": 2.0
+      "jugador": "Lionel Messi",
+      "pais": "Argentina",
+      "bandera": "🇦🇷",
+      "prob": 11.0
     },
     {
       "jugador": "Jude Bellingham",
